@@ -27,7 +27,7 @@ export const profile = {
     "I'm an Applied AI Engineer who builds end-to-end AI applications. I started with machine learning models, but quickly became more interested in everything around them—API design, authentication, databases, deployment, and the engineering that turns a model into a product people can rely on. That shift shaped how I approach every project. Before writing code, I spend time understanding the people and workflows the software is meant to support. HealthMate, a medical assistant I developed alongside clinical staff, went on to win 1st Prize at the COMSATS Career Expo, reinforcing my belief that good AI starts with understanding the problem, not the model. Whether I'm building RAG systems, AI assistants, or backend platforms, I'm interested in software that solves real problems. Teaching Python and AI has also made me a clearer engineer—it forces me to explain complex ideas simply and design systems that others can understand.",
 
   location: 'Islamabad, Pakistan',
-  portfolioUrl: 'https://portfolio-laibaidrees.vercel.app/',
+  portfolioUrl: 'https://portfolio-laiba-cyan.vercel.app/',
 
   // TODO — fill these in before publishing.
   email: 'laiba.idrees2003@gmail.com',
