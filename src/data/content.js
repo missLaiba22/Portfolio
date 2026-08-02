@@ -21,11 +21,10 @@ export const profile = {
 
   // LOCKED — hero subline.
   subline:
-    'Applied AI Engineer building LLM-powered systems, end to end. I work the full stack behind the model — FastAPI backends, clean API layers, and databases in Postgres and MongoDB — with a bias toward systems that solve real problems, whatever the domain.',
-
+    'I build AI products from prototype to production—combining LLMs, backend engineering, and thoughtful system design into tools people can actually use. My work spans medical AI, RAG systems, voice assistants, and agentic workflows, with a focus on solving real problems rather than building demos.',
   // LOCKED — About paragraph.
   about:
-    "I'm an Applied AI Engineer and recent COMSATS graduate who builds LLM-powered applications end to end. I came to AI through the model, then went deeper into the backbone — clean API design, auth and sessions, proper database schemas — because I realized the model sits on top, but the backend is what actually holds an application up. My work leans toward real impact over novelty: HealthMate, an assistant I shaped with clinical staff before writing a single prompt, won 1st prize at the COMSATS Career Expo. A medical background gives my health work credibility, but my projects already span research agents, retrieval systems, and debate tooling — I'm after real problems, whatever the domain. I also teach Python and AI, which keeps me able to explain what I build as clearly as I build it.",
+    "I'm an Applied AI Engineer who builds end-to-end AI applications. I started with machine learning models, but quickly became more interested in everything around them—API design, authentication, databases, deployment, and the engineering that turns a model into a product people can rely on. That shift shaped how I approach every project. Before writing code, I spend time understanding the people and workflows the software is meant to support. HealthMate, a medical assistant I developed alongside clinical staff, went on to win 1st Prize at the COMSATS Career Expo, reinforcing my belief that good AI starts with understanding the problem, not the model. Whether I'm building RAG systems, AI assistants, or backend platforms, I'm interested in software that solves real problems. Teaching Python and AI has also made me a clearer engineer—it forces me to explain complex ideas simply and design systems that others can understand.",
 
   location: 'Islamabad, Pakistan',
   portfolioUrl: 'https://portfolio-laibaidrees.vercel.app/',
