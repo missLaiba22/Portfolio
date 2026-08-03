@@ -15,10 +15,10 @@ export const healthmate = {
   cardTagline:
     'A two-part medical assistant — five-organ scan segmentation and a bilingual voice-to-voice companion — shaped with clinical input.',
   metrics: [
-  { value: '5', label: 'Medical AI Models' },
-  { value: 'Voice + Vision', label: 'Multimodal AI' },
-  { value: '1st', label: 'COMSATS Expo 2025' },
-],
+    { value: '5', label: 'Medical AI models' },
+    { value: 'Voice + Vision', label: 'Multimodal AI' },
+    { value: '1st', label: 'COMSATS Expo 2025' },
+  ],
 
   // THE QUESTION
   question:
@@ -152,12 +152,12 @@ export const healthmate = {
       url: 'https://drive.google.com/file/d/1K7oD6kqqQVIakeE51ItcLXdG2qVk5piU/view?usp=drive_link',
     },
     {
-      label: 'Segmentation models (GitHub)',
-      url: 'https://github.com/missLaiba22/Segmentation-Models-HealthMate-',
-    },
-    {
       label: 'HealthMate app (GitHub)',
       url: 'https://github.com/zaenbrz/Health-Mate',
+    },
+    {
+      label: 'Segmentation models (GitHub)',
+      url: 'https://github.com/missLaiba22/Segmentation-Models-HealthMate-',
     },
     {
       label: 'Technical report',
