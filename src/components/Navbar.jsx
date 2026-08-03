@@ -1,12 +1,36 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { profile, nav } from '../data/content'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const navRef = useRef(null)
+
+  // Close the mobile menu when tapping outside it, pressing Escape, or scrolling.
+  useEffect(() => {
+    if (!open) return
+    const onPointerDown = (e) => {
+      if (navRef.current && !navRef.current.contains(e.target)) setOpen(false)
+    }
+    const onKey = (e) => {
+      if (e.key === 'Escape') setOpen(false)
+    }
+    const onScroll = () => setOpen(false)
+    document.addEventListener('pointerdown', onPointerDown)
+    document.addEventListener('keydown', onKey)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      document.removeEventListener('pointerdown', onPointerDown)
+      document.removeEventListener('keydown', onKey)
+      window.removeEventListener('scroll', onScroll)
+    }
+  }, [open])
 
   return (
-    <nav className="sticky top-0 z-20 -mx-6 border-b border-line bg-cream/95 px-6 backdrop-blur sm:-mx-8 sm:px-8">
+    <nav
+      ref={navRef}
+      className="sticky top-0 z-20 -mx-6 border-b border-line bg-cream/95 px-6 backdrop-blur sm:-mx-8 sm:px-8"
+    >
       <div className="flex h-[72px] items-center justify-between">
         <Link
           to="/"
