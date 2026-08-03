@@ -67,11 +67,41 @@ export const fieldNote = {
   title: 'Where I Found Direction',
   body: 'I discovered that I do my best work in communities where ideas are shared freely and failure is part of the process. Through hackathons and developer communities like iCodeGuru, I found mentors, teammates, and challenges that pushed me beyond coursework. They transformed AI from something I studied into something I build.',
 }
+export const experience = [
+  {
+    role: 'Coding Instructor',
+    org: 'RISE',
+    period: 'Jul 2025 – Present',
+    meta: 'Remote',
+    description:
+      'Teach Python and AI through personalized one-to-one programs for students aged 9–18. Design project-based learning experiences, adapt lessons to different learning styles, and help students build confidence by creating real applications.',
+    skills: ['Python', 'AI Fundamentals', 'Mentoring', 'Curriculum Design'],
+  },
+  {
+    role: 'Health Data Science Content Instructor',
+    org: 'mahv.io',
+    period: 'Jan 2026 – Apr 2026',
+    meta: 'Contract · Remote',
+    description:
+      "Developed recorded lectures and educational content for a Master's program in Health Data Science as part of the Universal Digital Health initiative. Focused on translating AI and digital health concepts into clear, accessible learning materials.",
+    skills: ['Health AI', 'Technical Communication', 'Educational Content Development'],
+  },
+  {
+    role: 'Software Engineering Fellow',
+    org: 'Headstarter AI',
+    period: 'Jul 2024 – Sep 2024',
+    meta: 'Remote',
+    description:
+      'Built Scriptorium, a retrieval-augmented generation (RAG) chatbot that lets users explore history books through natural language. The fellowship emphasized building AI-powered applications, rapid iteration, and shipping working products within tight development cycles.',
+    skills: ['RAG', 'LLM Applications', 'React', 'AI Engineering'],
+  },
+]
 
 export const nav = [
   { href: '/#about', label: 'About' },
   { href: '/#skills', label: 'Skills' },
   { href: '/#projects', label: 'Projects' },
+  { href: '/#experience', label: 'Experience' },
   { href: '/#notes', label: 'Reflections' },
   { href: '/#contact', label: 'Contact' },
 ]
