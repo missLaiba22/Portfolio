@@ -1,13 +1,13 @@
 // GynaeGenius Bot — a RAG women's-health assistant built in a 3-day Langflow
 // hackathon. Content is the user's own case-study copy; aligned to the shared
 // template (My Role box, ownership split, SVG diagram). The honesty note about
-// the deprecated Cohere embedding model is preserved as written.
+// the deprecated Cohere embedding model is preserved.
 
 export const gynaegenius = {
   slug: 'gynaegenius',
   title: 'GynaeGenius Bot',
   subtitle:
-    "A retrieval-grounded women's-health assistant that answers only from trusted medical sources.",
+    "A women's-health chatbot that answers from trusted medical sources using RAG.",
   kicker: 'Applied AI · Retrieval-augmented generation (RAG) · Langflow Hackathon 2024',
   featured: false,
   status: 'published',
@@ -23,10 +23,10 @@ export const gynaegenius = {
 
   // THE QUESTION
   question:
-    'Many women hesitate to discuss sensitive gynecological and maternal health concerns because of limited access to healthcare or discomfort seeking medical advice. GynaeGenius started with a simple question: could a Retrieval-Augmented Generation chatbot provide medically grounded answers from trusted sources while encouraging users to seek professional care when needed?',
+    'Many women hesitate to ask about gynecological and maternal health, because of limited access to care or discomfort asking. GynaeGenius answers these questions from trusted medical documents and recommends seeing a doctor when needed.',
 
   // MY ROLE
-  role: 'Built as part of a six-person team during the Langflow Hackathon 2024. I contributed to building the RAG pipeline, integrating Langflow components, implementing the retrieval workflow, and developing the chatbot experience.',
+  role: 'Built by a team of six during the Langflow Hackathon 2024. I worked on the RAG pipeline, integrated the Langflow components, built the retrieval workflow and developed the chatbot experience.',
   ownership: [
     {
       who: 'Mine',
@@ -47,52 +47,50 @@ export const gynaegenius = {
       label: 'Context',
       blocks: [
         {
-          text: "GynaeGenius was developed in just three days during the hackathon. The objective was to build a working healthcare assistant that answered questions using trusted medical documents instead of relying solely on an LLM's general knowledge.",
+          text: "GynaeGenius was built in three days during the hackathon. The goal was a working health assistant that answers from trusted medical documents instead of only the LLM's general knowledge.",
         },
       ],
     },
     {
-      label: 'The Experiment',
+      label: 'How it works',
       blocks: [
         {
-          text: "GynaeGenius combines a Streamlit frontend with a Langflow-based RAG pipeline. Medical reference documents from the WHO are converted into embeddings using Cohere, stored in Astra DB, and retrieved whenever a user asks a question. The retrieved passages are then passed to Cohere's chat model, which generates answers grounded in the provided medical context rather than its own memory.",
+          text: "GynaeGenius has a Streamlit frontend and a RAG pipeline built in Langflow. WHO medical documents are embedded with Cohere and stored in Astra DB. When a user asks a question, the most relevant passages are retrieved and passed to Cohere's chat model, which answers from that context.",
         },
         {
           lead: 'Supportive, not diagnostic.',
-          text: 'The chatbot is also instructed to recommend consulting a healthcare professional whenever the retrieved information is insufficient — keeping the system supportive rather than diagnostic.',
+          text: 'The chatbot is instructed to recommend seeing a healthcare professional whenever the retrieved information is not enough to answer.',
         },
       ],
       diagram: 'gynaeRag',
     },
     {
-      label: 'The Challenge',
+      label: 'Challenges & fixes',
       blocks: [
         {
-          lead: 'Building on a new platform.',
-          text: 'Langflow was still in its early stages, so much of the challenge came from tooling rather than application logic. Version conflicts, missing components, and configuration issues required frequent troubleshooting throughout the hackathon — while the Langflow team actively helped participants resolve platform issues.',
+          lead: 'Working with a new platform.',
+          text: 'Langflow was still early, so most problems came from the tooling: version conflicts, missing components and configuration issues. We troubleshot these throughout the hackathon, with help from the Langflow team.',
         },
         {
-          lead: 'A dependency that disappeared.',
-          text: 'After the hackathon, the project stopped functioning because the Cohere embedding model it relied on was permanently deprecated. Since retrieval depended on that model, the chatbot could no longer return grounded responses — a reminder that external AI services can become long-term maintenance risks.',
+          lead: 'A deprecated model.',
+          text: 'After the hackathon, Cohere permanently deprecated the embedding model the project used. Retrieval depends on that model, so the chatbot can no longer return grounded answers. This showed me that external AI services are a long-term maintenance risk.',
         },
       ],
     },
     {
-      label: 'Impact',
-      blocks: [
-        {
-          text: 'The project was completed and deployed during the hackathon as a working RAG healthcare assistant. It demonstrated how trusted medical documents could be combined with retrieval and generation to give more reliable responses than a standalone language model.',
-        },
-        {
-          text: 'Although the backend no longer functions due to the deprecated embedding model, the project remains an important learning experience in building retrieval-based AI systems under tight time constraints.',
-        },
+      label: 'Results',
+      bullets: [
+        'Built and deployed in 3 days by a team of six.',
+        'Answers grounded in WHO documents through a Langflow RAG pipeline (Cohere + Astra DB).',
+        'Recommends a doctor when the retrieved context is not enough.',
+        'The backend no longer works because the Cohere embedding model was deprecated.',
       ],
     },
   ],
 
   // LESSON LEARNED
   lesson:
-    'Building AI applications is not only about designing the pipeline — it also means planning for the lifecycle of the services those pipelines depend on. GynaeGenius taught me the value of retrieval-grounded AI, while also showing how external model dependencies can affect the long-term reliability of a deployed system.',
+    'Building an AI app is not only about the pipeline. You also need a plan for when the external services it depends on change or are shut down.',
 
   links: [
     { label: 'Live app', url: 'https://gynaegenius-gynaebot.vercel.app/' },

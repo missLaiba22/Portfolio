@@ -6,7 +6,7 @@ export const codespark = {
   slug: 'codespark',
   title: 'CodeSpark AI',
   subtitle:
-    'Five everyday coding tasks — generate, optimize, explain, debug, test — behind one assistant.',
+    'An AI coding assistant for five tasks: generate, optimize, explain, debug and test code.',
   kicker: 'Applied AI · AI coding assistant · lablab.ai Build Fast Ship Fast hackathon',
   featured: false,
   status: 'published',
@@ -22,10 +22,10 @@ export const codespark = {
 
   // THE QUESTION
   question:
-    'Developers constantly switch between tools to generate code, debug errors, understand unfamiliar code, optimize existing solutions, and write tests. CodeSpark AI started with a simple question: could all of these common development tasks live inside one AI assistant instead of five different tools?',
+    'Developers often switch between different tools to generate code, debug errors, understand unfamiliar code, optimize it and write tests. CodeSpark AI puts these five tasks in one assistant.',
 
   // MY ROLE
-  role: "Built as a four-person team during the lablab.ai Build Fast Ship Fast hackathon. I contributed the FastAPI backend, Gemini integration, API development, and feature implementation. After the hackathon, I independently revisited the project — migrating it to Google's latest GenAI SDK, fixing configuration issues, and improving the interface for my portfolio.",
+  role: "Built by a team of four during the lablab.ai Build Fast Ship Fast hackathon. I built the FastAPI backend, the Gemini integration and the API endpoints, and implemented features. After the hackathon, I updated the project on my own: I migrated it to Google's latest GenAI SDK, fixed configuration issues and improved the interface.",
   ownership: [
     {
       who: 'Mine',
@@ -46,49 +46,50 @@ export const codespark = {
       label: 'Context',
       blocks: [
         {
-          text: "CodeSpark AI was originally built in just 48 hours. The goal wasn't to build a complete AI IDE, but to create a practical coding assistant developers could immediately use for common programming tasks.",
+          text: 'CodeSpark AI was built in 48 hours. The goal was not a full AI IDE, but a practical assistant developers could use right away for common coding tasks.',
         },
       ],
     },
     {
-      label: 'The Experiment',
+      label: 'How it works',
       blocks: [
         {
-          text: 'CodeSpark AI combines a Streamlit frontend with a FastAPI backend powered by Google Gemini. Instead of focusing on a single feature, it brings together five common developer tasks in one application: generating code, optimizing existing code, explaining unfamiliar code, debugging errors, and generating unit tests.',
+          text: 'CodeSpark AI has a Streamlit frontend and a FastAPI backend that calls Google Gemini. It covers five tasks in one app: generating code, optimizing code, explaining code, debugging errors and generating unit tests.',
         },
         {
           lead: 'One backend, five endpoints.',
-          text: 'Each capability is exposed through its own API endpoint while sharing the same backend architecture. That keeps every feature independent while presenting a single, consistent experience to the user.',
+          text: 'Each task has its own API endpoint, and all of them share the same backend and model call. Each feature stays independent, while the user gets one consistent app.',
         },
       ],
       diagram: 'codesparkFlow',
     },
     {
-      label: 'The Challenge',
+      label: 'Challenges & fixes',
       blocks: [
         {
-          lead: 'Building within 48 hours.',
-          text: "The biggest challenge wasn't implementing AI — it was deciding what not to build. With limited time, every feature had to be useful enough for a live demonstration while remaining simple enough to complete before the deadline. Choosing FastAPI and Streamlit let us focus on functionality instead of infrastructure.",
+          lead: 'Deciding what to build in 48 hours.',
+          text: 'The main challenge was scope. Each feature had to be useful enough to demo and small enough to finish before the deadline. We chose FastAPI and Streamlit so we could spend the time on features instead of setup.',
         },
         {
-          lead: 'Improving it after the hackathon.',
-          text: "When I returned to the project later, several dependencies had changed. I migrated the application to Google's latest GenAI SDK, fixed configuration issues, and polished the interface while preserving the original architecture and functionality.",
+          lead: 'Updating it after the hackathon.',
+          text: "When I came back to the project, several dependencies had changed. I migrated it to Google's latest GenAI SDK, fixed configuration issues and improved the interface, while keeping the original architecture and features.",
         },
       ],
     },
     {
-      label: 'Impact',
-      blocks: [
-        {
-          text: 'CodeSpark AI was completed and deployed during the hackathon as a working application rather than a prototype. It demonstrates a complete AI-assisted development workflow — generating, optimizing, explaining, debugging, and testing code — all within a single interface.',
-        },
+      label: 'Results',
+      bullets: [
+        'Built and deployed in 48 hours by a team of four.',
+        'Five coding tasks behind one FastAPI backend and one Gemini call.',
+        'Live on Streamlit as a working app, not just a prototype.',
+        "Later migrated on my own to Google's latest GenAI SDK.",
       ],
     },
   ],
 
   // LESSON LEARNED
   lesson:
-    'Building under a strict deadline reinforced that good scope is as important as good engineering. A small set of useful features that work reliably creates far more value than trying to build everything at once. Revisiting the project later also showed me the importance of maintaining software as tools and SDKs evolve.',
+    'With a tight deadline, choosing the right scope matters as much as the code. A few features that work reliably are worth more than many unfinished ones. Coming back to the project later also showed me that software needs maintenance as SDKs change.',
 
   links: [
     { label: 'Live demo', url: 'https://cursair-code.streamlit.app/' },

@@ -19,7 +19,9 @@
 //   question    string  — the "Q." block
 //   role        string  — the "My Role" fact box (contribution honesty)
 //   ownership   [{ who, items:[] }]             — split shown in the role box
-//   sections    [{ label, blocks:[{ lead?, text }], diagram?, fig?, stack? }]
+//   sections    [{ label, blocks:[{ lead?, text }], bullets?, diagram?, fig?, stack?, models? }]
+//               bullets: string[] — short concrete outcomes (used by "Results")
+//               models: true      — attach the models block to this section
 //   models      [{ organ, arch, metric, note? }] — optional results block
 //   lesson      string  — italic serif closing line
 //   links       [{ label, url }]

@@ -42,7 +42,7 @@ export const profile = {
 export const skillCategories = [
   {
     name: 'Core Technologies',
-    items: ['Python', 'FastAPI', 'React', 'PostgreSQL', 'MongoDB'],
+    items: ['Python', 'FastAPI', 'React', 'PostgreSQL', 'MongoDB', 'Docker', 'AWS'],
   },
   {
     name: 'AI Engineering',

@@ -7,7 +7,7 @@ import VerdaraDebateFlowDiagram from '../components/VerdaraDebateFlowDiagram'
 import HistoryQuestRagDiagram from '../components/HistoryQuestRagDiagram'
 import CodeSparkFlowDiagram from '../components/CodeSparkFlowDiagram'
 import GynaeRagDiagram from '../components/GynaeRagDiagram'
-import KarigarCheckoutDiagram from '../components/KarigarCheckoutDiagram'
+import KarigarArchitectureDiagram from '../components/KarigarArchitectureDiagram'
 import { realLinks, linkKind, LinkGlyph, cardQuickLinks, linkTitle } from '../components/linkMeta'
 import { profile } from '../data/content'
 
@@ -56,10 +56,10 @@ const diagrams = {
     caption:
       "Answers come only from retrieved context — if it isn't in the docs, the model defers to a real doctor.",
   },
-  karigarCheckout: {
-    Component: KarigarCheckoutDiagram,
+  karigarArchitecture: {
+    Component: KarigarArchitectureDiagram,
     caption:
-      'Rows locked and totals recomputed on the server; one Stripe payment, split into an order per artisan once the webhook confirms it.',
+      'One FastAPI app with six modules, each layered router → schema → service → repository, on PostgreSQL + pgvector.',
   },
 }
 
@@ -233,6 +233,20 @@ export default function CaseStudyLayout({ project }) {
               </div>
             ))}
 
+            {/* Optional bullet list — concrete outcomes, easy to skim */}
+            {sec.bullets && (
+              <ul className={`space-y-2.5 ${sec.blocks?.length ? 'mt-6' : ''} ${READ}`}>
+                {sec.bullets.map((item) => (
+                  <li key={item} className="flex gap-3 text-[16px] leading-[1.7] text-muted2">
+                    <span aria-hidden className="text-forest">
+                      —
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+
             {/* Modern SVG diagram (replaces the old ASCII figure) */}
             {dia && (
               <figure className="mt-8">
@@ -288,8 +302,8 @@ export default function CaseStudyLayout({ project }) {
               </div>
             )}
 
-            {/* Models block attaches to the "The Models" section */}
-            {models && sec.label === 'The Models' && <ModelsBlock models={models} />}
+            {/* Models block attaches to the section flagged `models: true` */}
+            {models && sec.models && <ModelsBlock models={models} />}
           </Reveal>
         )
       })}

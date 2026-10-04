@@ -7,7 +7,7 @@ export const karigar = {
   slug: 'karigar',
   title: 'Karigar',
   subtitle:
-    'A marketplace where one checkout pays many artisan shops, and the last item in stock is never sold twice.',
+    'A multi-vendor marketplace where customers buy from several artisan shops in one checkout.',
   kicker: 'Full-stack · Multi-vendor marketplace · DevWeekend Fellowship 2026',
   featured: false,
   status: 'published',
@@ -23,67 +23,70 @@ export const karigar = {
 
   // THE QUESTION
   question:
-    "Most tutorials stop once an endpoint works. Karigar asks what it takes to build a backend with real production judgment, where money is exact, stock can't be oversold, and every user only sees what they're allowed to see. A marketplace where one customer buys from several artisan shops in a single order was a good place to find out.",
+    'A marketplace with many sellers has to get the hard parts right: prices must be exact, stock must not be oversold, and each user must only see their own data. I built Karigar to practice building a backend that handles these correctly, not just endpoints that return data.',
 
   // MY ROLE — solo build, so no ownership split.
-  role: 'A solo build for the DevWeekend Fellowship 2026. I designed and built the FastAPI backend — six modules, the database schema and migrations, checkout, Stripe payments, Google sign-in, discount codes and the RAG shopping assistant — along with the React + Tailwind frontend, and deployed it on Vercel, Render and Neon. I built it with Claude as a pair, but I read and reasoned through every schema, query and pattern before accepting it, so I can explain and defend each decision.',
+  role: 'A solo build for the DevWeekend Fellowship 2026. I designed and built the FastAPI backend (six modules, database schema and migrations, checkout, Stripe payments, Google sign-in, discount codes and the RAG shopping assistant) and the React + Tailwind frontend, and deployed it on Vercel, Render and Neon. I used Claude as a coding partner, and reviewed every schema, query and pattern before accepting it, so I can explain each decision.',
 
   sections: [
     {
       label: 'Context',
       blocks: [
         {
-          text: 'Karigar is a marketplace for handmade crafts. Independent artisans — potters, weavers, woodworkers, leatherworkers — each run their own shop, and a customer can buy from several shops in one order. A new artisan can only start listing products once an admin approves their shop. The main goal was not the longest feature list, but practicing system design: thinking through trade-offs, module boundaries and data flow before writing code.',
+          text: 'Karigar is a marketplace for handmade crafts. Artisans (potters, weavers, woodworkers, leatherworkers) each run their own shop, and a customer can buy from several shops in one order. New artisans can list products only after an admin approves their shop. My main goal was to practice system design: thinking through trade-offs, module boundaries and data flow before writing code.',
         },
       ],
     },
     {
-      label: 'The Experiment',
+      label: 'How it works',
       blocks: [
         {
-          text: 'The backend is a modular monolith: one FastAPI app split into six modules — auth, artisans, products, orders, promotions and chatbot. Every module follows the same shape: router → schema → service → repository. One rule holds across all of them: repositories only flush, services commit. So a multi-step action, like creating an artisan account and their shop together, is saved as one unit — if one step fails, nothing is saved.',
+          text: 'The backend is one FastAPI app split into six modules: auth, artisans, products, orders, promotions and chatbot. Each module follows the same structure: router → schema → service → repository. Repositories only flush; services commit. This means a multi-step action, like creating an artisan account and their shop, is saved as one transaction: if one step fails, nothing is saved.',
         },
         {
-          lead: 'The key decision — never trust the cart.',
-          text: "The cart lives on the frontend, but the backend never trusts the price or stock it sends. At checkout, the server locks every product row in the cart, checks stock, recalculates the total itself and reserves the stock. Then the customer pays once on Stripe's hosted page, and the checkout is split into one order per artisan. A checkout only counts as paid when Stripe confirms it through a webhook — and if it expires unpaid, the stock is released. Artisans only ever see paid orders for their own shop.",
+          lead: 'Key decision: the server never trusts the cart.',
+          text: "The cart is stored in the browser, but the backend ignores the prices and stock it sends. At checkout, the server locks the product rows, checks stock, recalculates the total and reserves the stock. The customer pays once on Stripe's hosted page, and the checkout is split into one order per artisan. An order is marked paid only when Stripe confirms it through a webhook. If the payment expires, the reserved stock is released. Artisans only see paid orders for their own shop.",
         },
         {
-          lead: 'A shopping assistant that only knows the real catalog.',
-          text: "Products are stored as embeddings in PostgreSQL with pgvector. When a customer asks a question in the chat widget, the closest products are retrieved and passed to a model on Groq, which answers only from them — so it can't invent a product. Replies stream word by word over a WebSocket.",
+          lead: 'Shopping assistant grounded in the catalog.',
+          text: 'Product and shop data are stored as embeddings in PostgreSQL with pgvector. When a customer asks a question, the closest products are retrieved and sent to an LLM on Groq, which answers only from those products. Replies stream word by word over a WebSocket.',
         },
       ],
-      diagram: 'karigarCheckout',
+      diagram: 'karigarArchitecture',
     },
     {
-      label: 'The Challenge',
+      label: 'Challenges & fixes',
       blocks: [
         {
-          lead: 'Two customers, one last item.',
-          text: 'Two customers could both read the last unit in stock at the same time, both pass the check, and both buy it. The fix was to lock the product rows before checking stock, not after — locking after the check leaves the same gap open. The lock covers only the rows being bought, so normal browsing is never blocked.',
+          lead: 'Preventing overselling.',
+          text: 'Two customers could read the last item in stock at the same time and both buy it. I fixed this by locking the product rows before checking stock (locking after the check leaves the same gap). Only the rows being bought are locked, so browsing is not affected.',
         },
         {
-          lead: 'Deep pages got slower and slower.',
-          text: "I seeded 100,000 fake products to see how the catalog held up. The bottleneck wasn't React — it was how the list endpoint read the database. Reading the first 100 rows took about 3 ms, but 100 rows at offset 50,000 took about 43 ms, because the database walks past every earlier row first. The public feed moved to cursor (keyset) pagination, which jumps straight to the next rows at any depth. The artisan dashboard kept offset pagination, because owners filter results and want real page numbers.",
+          lead: 'Slow pages deep in the catalog.',
+          text: "I loaded 100,000 test products to check performance. The slow part was the database query, not React. With offset pagination, the first 100 rows took about 3 ms, but 100 rows at offset 50,000 took about 43 ms, because the database reads and skips every earlier row. I switched the public product feed to cursor (keyset) pagination, which stays fast at any depth. The artisan dashboard keeps offset pagination because sellers filter results and need page numbers.",
         },
         {
-          lead: "Production bugs that weren't what they looked like.",
-          text: "CORS failures looked like a config problem, but the latest code simply hadn't redeployed — a temporary debug endpoint that showed the live config exposed it instead of guessing. The embedding model crashed Render's free tier on startup, so I called the same model through the Hugging Face Inference API instead; because it was the same model, the stored vectors didn't have to change. And when Neon dropped idle connections, connection health checks fixed it.",
+          lead: 'Deployment issues.',
+          text: "Requests failed with CORS errors even though the config looked correct. I added a temporary debug endpoint showing the live config and found the latest code hadn't been redeployed. The embedding model crashed Render's free tier on startup, so I moved it to the Hugging Face Inference API; it is the same model, so the stored vectors still worked. Neon was dropping idle database connections, which I fixed with connection health checks.",
         },
       ],
     },
     {
-      label: 'Impact',
-      blocks: [
-        {
-          text: 'Karigar is live and works end to end for all three roles: artisans sign up, get approved, list products and see their own paid orders; customers buy from several shops in one Stripe payment; and the assistant answers from the real catalog. More than any one feature, it is where I practiced thinking like a backend engineer — Numeric instead of float for money, price snapshots on every order so old receipts stay correct, soft deletes so past orders never break, and clear 403 / 404 / 409 errors instead of one generic failure.',
-        },
+      label: 'Results',
+      bullets: [
+        'Live on Vercel, Render and Neon, with customer, artisan and admin flows working end to end.',
+        'One Stripe payment covers a multi-shop cart and is split into one order per artisan.',
+        'No overselling: product rows are locked during checkout, and unpaid checkouts release their stock.',
+        'Load-tested with 100,000 products. Deep offset pages took ~43 ms vs ~3 ms for the first page, so the public feed moved to cursor pagination, which stays fast at any depth.',
+        'Correct money handling: Numeric instead of float, and order items store the price at the time of purchase.',
+        'Clear API errors (403 / 404 / 409) that the frontend shows as readable messages.',
       ],
     },
   ],
 
   // LESSON LEARNED
   lesson:
-    'A working endpoint is not the same as a correct one. The real work was in what could go wrong — two people buying the last item, a payment that never finishes, a page that quietly gets slow. Using AI to build faster only helped because I stopped to understand every decision before accepting it.',
+    'An endpoint that works is not always correct. Most of the work was handling what could go wrong: two people buying the last item, a payment that never finishes, a page that slows down as data grows. Using AI helped me build faster because I reviewed and understood every decision before accepting it.',
 
   links: [
     { label: 'Live app', url: 'https://karigar-marketplace.vercel.app/' },

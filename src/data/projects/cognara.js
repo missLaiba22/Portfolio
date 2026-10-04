@@ -5,7 +5,7 @@
 export const cognara = {
   slug: 'cognara',
   title: 'Cognara',
-  subtitle: 'A research agent that turns a topic into a sourced brief.',
+  subtitle: 'A research agent that searches the web on a topic and returns a summary with sources.',
   kicker: 'Agentic AI · LangGraph research agent · Streamlit + CLI',
   featured: false,
   status: 'published',
@@ -21,59 +21,60 @@ export const cognara = {
 
   // THE QUESTION
   question:
-    'Answering a research question usually means opening ten tabs, skimming each, and stitching the pieces together yourself. Cognara started as a question about that gap: could a small, well-structured agent do the searching and the stitching — and hand back something with its sources still attached?',
+    'Researching a topic usually means opening many tabs, reading each one and combining the results yourself. Cognara does the searching and summarizing in one step, and keeps the sources attached to the answer.',
 
   // MY ROLE — solo build, so no ownership split.
-  role: 'A solo learning project. I built the whole thing: the LangGraph workflow, the two graph nodes (search and synthesis), the shared graph state that carries data between them, and both front doors — a Streamlit UI and a CLI.',
+  role: 'A solo learning project. I built the LangGraph workflow, its two nodes (search and summarize), the shared state that passes data between them, and both interfaces: a Streamlit UI and a CLI.',
 
   sections: [
     {
       label: 'Context',
       blocks: [
         {
-          text: 'Cognara is deliberately small. I built it to understand how an agentic pipeline actually fits together end to end — state, nodes, and orchestration — rather than to ship a heavy product. The narrow scope was the point, not a shortcut.',
+          text: 'I kept Cognara small on purpose. The goal was to understand how an agent pipeline fits together end to end (state, nodes and orchestration), not to build a large product.',
         },
       ],
     },
     {
-      label: 'The Experiment',
+      label: 'How it works',
       blocks: [
         {
-          text: 'A topic comes in from either the Streamlit UI or the CLI and runs through a two-node LangGraph. The research node queries Tavily for current web results; the writer node passes those notes to Gemini 2.5 Flash and synthesizes them. What comes back is a sourced brief — the summary together with the sources it drew from.',
+          text: 'A topic comes in from the Streamlit UI or the CLI and runs through a two-node LangGraph. The research node searches the web with Tavily. The writer node sends those results to Gemini 2.5 Flash, which writes a summary. The output is the summary together with its sources.',
         },
         {
-          lead: 'The key decision — keep the graph to two nodes.',
-          text: 'I kept the pipeline linear and small on purpose: research, then write. A shared state object carries the topic and the gathered notes between the two nodes, so each node does exactly one job and nothing reaches across. It is the smallest graph that still separates "find the evidence" from "write the answer" — the boundary I wanted to learn to draw cleanly.',
+          lead: 'Key decision: two nodes, one job each.',
+          text: 'The pipeline is linear: research, then write. A shared state object carries the topic and the search results between the two nodes, so each node does one job. This cleanly separates finding the information from writing the answer.',
         },
       ],
       diagram: 'cognaraPipeline',
     },
     {
-      label: 'The Challenge',
+      label: 'Challenges & fixes',
       blocks: [
         {
-          lead: 'Two interfaces, one graph.',
-          text: 'The Streamlit UI and the CLI are just two entry points onto the same LangGraph. Keeping the graph independent of its interface means they never drift apart — both call the same nodes over the same state, so a change to the pipeline shows up identically in the browser and the terminal.',
+          lead: 'Supporting two interfaces.',
+          text: 'The Streamlit UI and the CLI both call the same LangGraph. Because the graph does not depend on the interface, any change to the pipeline works the same way in the browser and in the terminal.',
         },
         {
-          lead: 'Where I drew the line — and what I left for later.',
-          text: 'The graph is linear, not iterative: there is no retry or self-check loop yet, and the output is a single synthesized summary rather than a sectioned report. Persistence and history are not in yet either. Those are deliberate next steps, not accidents — I would rather ship a clean two-node core I fully understand than a tangled one I do not.',
+          lead: 'What is not built yet.',
+          text: 'The graph has no retry or self-check loop, the output is one summary rather than a sectioned report, and there is no saved history yet. I left these out on purpose to keep the first version simple and fully understood.',
         },
       ],
     },
     {
-      label: 'Impact',
-      blocks: [
-        {
-          text: 'Cognara works end to end: give it a topic, get back a summary with its sources, from either a terminal or a browser. More than the output, it is the project where the agentic pattern clicked for me — a graph of small, single-purpose nodes over one shared state — the same shape I reached for again, with far more depth, in Verdara.',
-        },
+      label: 'Results',
+      bullets: [
+        'Works end to end: enter a topic, get a summary with its sources.',
+        'Runs from both a Streamlit UI and a CLI using the same graph.',
+        'Live web results through Tavily, summarized by Gemini 2.5 Flash.',
+        'The same pattern (small nodes over one shared state) became the base for Verdara.',
       ],
     },
   ],
 
   // LESSON LEARNED
   lesson:
-    'Small on purpose beats big by accident. Building the two-node version first taught me the pattern cleanly — research, then synthesize, over one shared state — and made it obvious what the next, harder version would need.',
+    'Building the smallest working version first helped me understand the pattern clearly, and made it obvious what the next, bigger version would need.',
 
   links: [
     {

@@ -6,7 +6,8 @@
 export const verdara = {
   slug: 'verdara',
   title: 'Verdara',
-  subtitle: 'A multi-agent debate that argues both sides, then lets a human have the last word.',
+  subtitle:
+    'A multi-agent debate app: AI agents argue both sides of a question, a judge agent gives a verdict, and a person reviews it.',
   kicker: 'Agentic AI · Multi-agent debate · FastAPI + React · human-in-the-loop',
   featured: false,
   status: 'published',
@@ -22,67 +23,68 @@ export const verdara = {
 
   // THE QUESTION
   question:
-    'A single AI answer hides its own uncertainty — it hands you a conclusion without showing you the argument. Verdara asks a different question: what if you could watch a case get argued for and against, have a judge weigh both sides, and still keep a human in the loop before anything counts as final?',
+    'A single AI answer gives a conclusion without showing the reasoning for and against it. Verdara shows both sides: agents argue for and against a question, a judge weighs them, and a person reviews the verdict before it is final.',
 
   // MY ROLE — solo build, so no ownership split.
-  role: 'A solo build. I designed and built the agent graph — research, pro, con and judge — the FastAPI backend and its debate-session API, the SQLite-checkpointed state, and the human-in-the-loop review flow, with a React + TypeScript frontend for watching the debate and ruling on the verdict.',
+  role: 'A solo build. I built the agent graph (research, pro, con and judge), the FastAPI backend and its debate-session API, the SQLite checkpointing, the human review flow, and a React + TypeScript frontend for following the debate and reviewing the verdict.',
 
   sections: [
     {
       label: 'Context',
       blocks: [
         {
-          text: 'Verdara is the second, deeper cut of the agentic pattern I first built in Cognara. Instead of one research-then-write path, it runs a structured debate: a research agent gathers evidence, a pro and a con agent argue opposite sides, and a judge weighs them — with a deliberate pause so a person can review the verdict before it is final.',
+          text: 'Verdara builds on the agent pattern from Cognara. Instead of one research-then-write path, it runs a structured debate: a research agent gathers evidence, a pro and a con agent argue opposite sides, and a judge decides. The graph pauses before the verdict so a person can review it.',
         },
       ],
     },
     {
-      label: 'The Experiment',
+      label: 'How it works',
       blocks: [
         {
-          text: 'A question enters and a research agent gathers web evidence with Tavily. That evidence fans out to two agents — one arguing in favour, one against. Before any verdict is written, the graph pauses and checkpoints its state to SQLite. A judge agent then assesses both sides and writes a verdict, which goes to a human for review.',
+          text: 'A research agent gathers web evidence with Tavily. The evidence goes to two agents, one arguing for and one against. Before the verdict, the graph pauses and saves its state to SQLite. A judge agent then assesses both sides and writes a verdict, which goes to a person for review.',
         },
         {
-          lead: 'The key decision — checkpoint the state, then pause for a human.',
-          text: 'The verdict is the moment that matters, so the graph stops right before it. Checkpointing the full state to SQLite at that pause is what makes human-in-the-loop actually work: the run can halt, wait for a person, and resume — or replay — without losing the evidence and arguments it already built.',
+          lead: 'Key decision: save the state, then pause for a person.',
+          text: 'The graph stops right before the verdict. Saving the full state to SQLite at that point lets the run wait for a person and then resume, without losing the evidence and arguments already gathered.',
         },
         {
-          lead: 'Three ways for a human to respond.',
-          text: 'At review, a person can approve (the verdict stands and the run completes), give an opinion (which feeds back to the model to refine the verdict while keeping the existing evidence), or reject (which re-runs the judge). One review step, three genuinely different paths through the graph.',
+          lead: 'Three review options.',
+          text: 'The reviewer can approve the verdict (the run completes), add an opinion (the model refines the verdict using the existing evidence), or reject it (the judge runs again).',
         },
       ],
       diagram: 'verdaraDebate',
     },
     {
-      label: 'The Challenge',
+      label: 'Challenges & fixes',
       blocks: [
         {
-          lead: 'Orchestrating agents that disagree on purpose.',
-          text: 'Pro and con only produce a useful debate if they argue independently over the same evidence, and the judge only adds value if it assesses both rather than splitting the difference. Getting that structure right — shared research, opposed arguments, a separate assessment step — was the core of the design.',
+          lead: 'Making the debate useful.',
+          text: 'The pro and con agents need to argue independently from the same evidence, and the judge needs to assess both sides rather than average them. I structured the graph as shared research, two separate arguments, then a separate judging step.',
         },
         {
-          lead: 'Making "pause" a first-class state, not a hack.',
-          text: 'A human-review step means the system has to be pausable and resumable by design. Leaning on LangGraph checkpointing to SQLite let the pause be a real, durable state rather than something bolted on — the difference between a demo and a flow you can actually step away from and come back to.',
+          lead: 'Pausing and resuming reliably.',
+          text: 'Human review means the run must be able to stop and continue later. I used LangGraph checkpointing to SQLite, so the pause is a saved state rather than something kept in memory.',
         },
         {
-          lead: 'Keeping the pieces separable.',
-          text: 'Splitting the codebase into agents, services and schemas kept the agent logic, the orchestration, and the data shapes from bleeding into each other — so the FastAPI API and the React frontend each talk to a clean boundary.',
+          lead: 'Keeping the code organized.',
+          text: 'I split the backend into agents, services and schemas, so agent logic, orchestration and data shapes stay separate, and the FastAPI API and React frontend each use a clear interface.',
         },
       ],
     },
     {
-      label: 'Impact',
-      blocks: [
-        {
-          text: 'Verdara is a working debate platform you can run end to end: ask a question, watch it argued both ways, and rule on the verdict yourself. It is where the agentic pattern grew up for me — from Cognara\u2019s linear two-node graph to a branching, pausable, multi-agent flow with durable state and human oversight.',
-        },
+      label: 'Results',
+      bullets: [
+        'Full debate runs end to end: research, pro, con and judge agents on LangGraph.',
+        'Runs pause before the verdict and resume from a SQLite checkpoint.',
+        'Reviewers can approve, add an opinion, or reject, and each choice follows a different path in the graph.',
+        'FastAPI backend with a React + TypeScript frontend for following the debate.',
       ],
     },
   ],
 
   // LESSON LEARNED
   lesson:
-    'The hard part of agentic systems is not adding more agents — it is the seams between them: where evidence is shared, where a human can step in, and where state has to survive a pause. Verdara is where I learned to design those seams first.',
+    'In multi-agent systems, the hard part is not adding agents. It is designing the points between them: where evidence is shared, where a person can step in, and how state is saved during a pause.',
 
   links: [
     {
