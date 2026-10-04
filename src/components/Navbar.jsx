@@ -53,6 +53,8 @@ export default function Navbar() {
           ))}
           <a
             href={profile.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-md bg-ink px-[18px] py-[9px] text-[13.5px] font-semibold text-cream transition-opacity hover:opacity-90"
           >
             Résumé
@@ -108,6 +110,8 @@ export default function Navbar() {
             ))}
             <a
               href={profile.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               tabIndex={open ? undefined : -1}
               onClick={() => setOpen(false)}
               className="mt-1 rounded-md bg-ink px-2 py-2 text-center text-sm font-semibold text-cream"

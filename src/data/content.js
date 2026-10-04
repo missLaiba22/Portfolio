@@ -33,7 +33,7 @@ export const profile = {
   email: 'laiba.idrees2003@gmail.com',
   github: 'https://github.com/missLaiba22',
   linkedin: 'https://www.linkedin.com/in/laiba-idrees/',
-  resumeUrl: '#', // TODO — link a hosted résumé PDF.
+  resumeUrl: 'https://drive.google.com/file/d/1BXFov0kSusaTxK1eXxthC3FK7RV3BxDJ/view?usp=sharing',
 }
 
 // Skills — populated ONLY from tech actually evidenced in the HealthMate case

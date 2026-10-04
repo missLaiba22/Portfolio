@@ -32,7 +32,7 @@ export default function Contact() {
             <a href={profile.linkedin} className="text-[15px] text-muted hover:text-ink">
               LinkedIn
             </a>
-            <a href={profile.resumeUrl} className="text-[15px] text-muted hover:text-ink">
+            <a href={profile.resumeUrl} target="_blank" rel="noopener noreferrer" className="text-[15px] text-muted hover:text-ink">
               Résumé
             </a>
           </div>
