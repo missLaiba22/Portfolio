@@ -12,7 +12,7 @@
 
 export const profile = {
   name: 'Laiba Idrees',
-  role: 'Applied AI Engineer', // LOCKED — role-first, recruiters skim.
+  role: 'Software Engineer', // LOCKED — role-first, recruiters skim.
 
   // Hero H1. Provisional: the "hero-headline pass" is still open in the log.
   // Drawn verbatim from the opening of the locked subline, so it is not
@@ -24,7 +24,7 @@ export const profile = {
     'I build AI products from prototype to production—combining LLMs, backend engineering, and thoughtful system design into tools people can actually use. My work spans medical AI, RAG systems, voice assistants, and agentic workflows, with a focus on solving real problems rather than building demos.',
   // LOCKED — About paragraph.
   about:
-    "I'm an Applied AI Engineer who builds end-to-end AI applications. I started with machine learning models, but quickly became more interested in everything around them—API design, authentication, databases, deployment, and the engineering that turns a model into a product people can rely on. That shift shaped how I approach every project. Before writing code, I spend time understanding the people and workflows the software is meant to support. HealthMate, a medical assistant I developed alongside clinical staff, went on to win 1st Prize at the COMSATS Career Expo, reinforcing my belief that good AI starts with understanding the problem, not the model. Whether I'm building RAG systems, AI assistants, or backend platforms, I'm interested in software that solves real problems. Teaching Python and AI has also made me a clearer engineer—it forces me to explain complex ideas simply and design systems that others can understand.",
+    "I'm a Software Engineer who builds end-to-end AI applications. I started with machine learning models, but quickly became more interested in everything around them—API design, authentication, databases, deployment, and the engineering that turns a model into a product people can rely on. That shift shaped how I approach every project. Before writing code, I spend time understanding the people and workflows the software is meant to support. HealthMate, a medical assistant I developed alongside clinical staff, went on to win 1st Prize at the COMSATS Career Expo, reinforcing my belief that good AI starts with understanding the problem, not the model. Whether I'm building RAG systems, AI assistants, or backend platforms, I'm interested in software that solves real problems. Teaching Python and AI has also made me a clearer engineer—it forces me to explain complex ideas simply and design systems that others can understand.",
 
   location: 'Punjab, Pakistan',
   portfolioUrl: 'https://portfolio-laiba-cyan.vercel.app/',
@@ -67,7 +67,35 @@ export const fieldNote = {
   title: 'Where I Found Direction',
   body: 'I discovered that I do my best work in communities where ideas are shared freely and failure is part of the process. Through hackathons and developer communities like iCodeGuru, I found mentors, teammates, and challenges that pushed me beyond coursework. They transformed AI from something I studied into something I build.',
 }
+// `description` is one paragraph; `highlights` ([{ label, text }]) splits a
+// role into separately labelled parts. Either or both can be used.
 export const experience = [
+  {
+    role: 'Full Stack AI Engineering Fellow',
+    org: 'DevWeekend',
+    period: 'Jun 2026 – Sep 2026',
+    meta: 'Remote',
+    highlights: [
+      {
+        label: 'Full-stack project',
+        text: 'Built Karigar, a multi-vendor marketplace where customers buy from several artisan shops in one checkout, with a FastAPI + PostgreSQL backend, React frontend, Stripe payments and a RAG shopping assistant.',
+      },
+      {
+        label: 'DevOps',
+        text: 'Deployed an app to AWS with a CI/CD pipeline in GitHub Actions. Ran services in Docker for local development, and deployed Karigar across Vercel (frontend), Render (backend) and Neon (database).',
+      },
+    ],
+    skills: [
+      'Full-Stack Development',
+      'FastAPI',
+      'React',
+      'PostgreSQL',
+      'Docker',
+      'AWS',
+      'GitHub Actions',
+      'CI/CD',
+    ],
+  },
   {
     role: 'Coding Instructor',
     org: 'RISE',

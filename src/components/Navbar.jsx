@@ -84,28 +84,39 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile menu */}
-      {open && (
-        <div className="flex flex-col gap-1 border-t border-line py-3 md:hidden">
-          {nav.map((item) => (
+      {/* Mobile menu — always mounted so it can slide open/closed (grid-rows
+          0fr → 1fr animates to the content's natural height). Hidden from
+          screen readers and the tab order while closed. */}
+      <div
+        aria-hidden={!open}
+        className={`grid transition-[grid-template-rows,opacity] duration-200 ease-out md:hidden ${
+          open ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+        }`}
+      >
+        <div className="overflow-hidden">
+          <div className="flex flex-col gap-1 border-t border-line py-3">
+            {nav.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                tabIndex={open ? undefined : -1}
+                onClick={() => setOpen(false)}
+                className="rounded-md px-2 py-2 text-sm font-medium text-muted hover:bg-chip hover:text-ink"
+              >
+                {item.label}
+              </a>
+            ))}
             <a
-              key={item.href}
-              href={item.href}
+              href={profile.resumeUrl}
+              tabIndex={open ? undefined : -1}
               onClick={() => setOpen(false)}
-              className="rounded-md px-2 py-2 text-sm font-medium text-muted hover:bg-chip hover:text-ink"
+              className="mt-1 rounded-md bg-ink px-2 py-2 text-center text-sm font-semibold text-cream"
             >
-              {item.label}
+              Résumé
             </a>
-          ))}
-          <a
-            href={profile.resumeUrl}
-            onClick={() => setOpen(false)}
-            className="mt-1 rounded-md bg-ink px-2 py-2 text-center text-sm font-semibold text-cream"
-          >
-            Résumé
-          </a>
+          </div>
         </div>
-      )}
+      </div>
     </nav>
   )
 }

@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Portfolio of Laiba Idrees — Applied AI Engineer",
+  "description": "Portfolio of Laiba Idrees — Software Engineer",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

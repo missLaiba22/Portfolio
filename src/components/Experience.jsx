@@ -25,9 +25,21 @@ export default function Experience() {
                 {e.meta && <span className="text-faint2"> · {e.meta}</span>}
               </div>
 
-              <p className="mt-3 max-w-[640px] text-[15px] leading-[1.7] text-muted2">
-                {e.description}
-              </p>
+              {e.description && (
+                <p className="mt-3 max-w-read text-[15px] leading-[1.7] text-muted2">
+                  {e.description}
+                </p>
+              )}
+
+              {/* Optional labelled parts, for roles that cover separate areas */}
+              {e.highlights?.map((h) => (
+                <div key={h.label} className="mt-3 max-w-read">
+                  <div className="font-mono text-[11px] font-semibold uppercase tracking-[0.06em] text-forest">
+                    {h.label}
+                  </div>
+                  <p className="mt-1 text-[15px] leading-[1.7] text-muted2">{h.text}</p>
+                </div>
+              ))}
 
               {e.skills?.length > 0 && (
                 <div className="mt-4 flex flex-wrap gap-2">

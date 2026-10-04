@@ -11,7 +11,7 @@ export default function About() {
     >
       <div className="grid grid-cols-1 gap-8 md:grid-cols-[200px_1fr] md:gap-14">
         <SectionLabel>About</SectionLabel>
-        <p className="max-w-[660px] text-[18px] leading-[1.75] text-muted2">
+        <p className="max-w-read text-[17px] leading-[1.75] text-muted2">
           {profile.about}
         </p>
       </div>

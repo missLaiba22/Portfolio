@@ -30,8 +30,8 @@ export default function Reveal({ as: Tag = 'div', className = '', delay = 0, chi
     <Tag
       ref={ref}
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}
-      className={`reveal transition-[opacity,transform] duration-700 ease-out ${
-        shown ? 'reveal-in translate-y-0 opacity-100' : 'translate-y-5 opacity-0'
+      className={`reveal transition-[opacity,transform] duration-[600ms] ease-out ${
+        shown ? 'reveal-in translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
       } ${className}`}
       {...rest}
     >

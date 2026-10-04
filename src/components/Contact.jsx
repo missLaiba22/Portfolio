@@ -11,11 +11,11 @@ export default function Contact() {
     >
       <div className="grid grid-cols-1 gap-8 md:grid-cols-[200px_1fr] md:gap-14">
         <SectionLabel>Contact</SectionLabel>
-        <div className="max-w-[600px]">
+        <div className="max-w-read">
           <h3 className="mb-4 font-serif text-[30px] leading-tight text-ink">
-            Open to Applied AI Engineering roles.
+            Open to Software Engineering roles.
           </h3>
-          <p className="mb-7 text-[17px] leading-[1.7] text-muted">
+          <p className="mb-7 text-[17px] leading-[1.75] text-muted2">
             Reach out about full-time roles or collaborations — I&apos;m happy to
             talk through how I build LLM-powered systems from the backbone up.
           </p>

@@ -11,11 +11,11 @@ export default function FieldNotes() {
     >
       <div className="grid grid-cols-1 gap-8 md:grid-cols-[200px_1fr] md:gap-14">
         <SectionLabel>{fieldNote.label}</SectionLabel>
-        <div className="max-w-[660px]">
+        <div className="max-w-read">
           <h3 className="mb-4 font-serif text-[30px] leading-tight text-ink">
             {fieldNote.title}
           </h3>
-          <p className="text-[18px] leading-[1.75] text-muted2">{fieldNote.body}</p>
+          <p className="text-[17px] leading-[1.75] text-muted2">{fieldNote.body}</p>
         </div>
       </div>
     </Reveal>

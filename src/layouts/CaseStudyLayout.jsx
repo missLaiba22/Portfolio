@@ -100,18 +100,24 @@ export default function CaseStudyLayout({ project }) {
         <div className="text-[14px] font-semibold text-ink">{profile.name}</div>
       </nav>
 
-      {/* Title */}
+      {/* Title — same gentle staggered entrance as the home hero */}
       <header className="pt-16 md:pt-20">
         {kicker && (
-          <div className="mb-5 font-mono text-[12.5px] tracking-[0.02em] text-faint2">
+          <div className="animate-hero mb-5 font-mono text-[12.5px] tracking-[0.02em] text-faint2">
             {kicker}
           </div>
         )}
-        <h1 className="font-serif text-[38px] font-normal leading-[1.08] tracking-[-0.01em] text-ink sm:text-[46px]">
+        <h1
+          className="animate-hero font-serif text-[38px] font-normal leading-[1.08] tracking-[-0.01em] text-ink sm:text-[46px]"
+          style={{ animationDelay: '80ms' }}
+        >
           {title}
         </h1>
         {subtitle && (
-          <p className={`mt-5 text-[18px] leading-[1.6] text-muted ${READ}`}>
+          <p
+            className={`animate-hero mt-5 text-[18px] leading-[1.6] text-muted ${READ}`}
+            style={{ animationDelay: '160ms' }}
+          >
             {subtitle}
           </p>
         )}
@@ -120,12 +126,15 @@ export default function CaseStudyLayout({ project }) {
       {/* Summary bar — stats + quick actions, so a recruiter gets the gist
           and can jump to live/demo/repo without scrolling. */}
       {(metrics.length > 0 || quick.length > 0) && (
-        <div className="mt-8 flex flex-col gap-5 rounded-2xl border border-line bg-card p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+        <div
+          className="animate-hero mt-8 flex flex-col gap-5 rounded-2xl border border-line bg-card p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6"
+          style={{ animationDelay: '240ms' }}
+        >
           {metrics.length > 0 && (
-            <div className="flex flex-wrap gap-x-8 gap-y-3 sm:gap-x-10">
+            <div className="grid grid-cols-3 gap-4 sm:flex sm:gap-x-10">
               {metrics.map((m) => (
                 <div key={m.label}>
-                  <div className="font-serif text-[28px] leading-none text-ink">{m.value}</div>
+                  <div className="font-serif text-[22px] leading-none text-ink sm:text-[28px]">{m.value}</div>
                   <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.04em] text-faint2">
                     {m.label}
                   </div>

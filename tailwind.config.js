@@ -29,6 +29,7 @@ export default {
       },
       maxWidth: {
         page: '1120px',
+        read: '680px', // one reading width for body text across the home page
       },
     },
   },
