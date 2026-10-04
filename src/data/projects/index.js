@@ -31,8 +31,9 @@ import { verdara } from './verdara'
 import { scriptorium } from './scriptorium'
 import { codespark } from './codespark'
 import { gynaegenius } from './gynaegenius'
+import { karigar } from './karigar'
 
-export const projects = [healthmate, cognara, verdara, scriptorium, codespark, gynaegenius]
+export const projects = [healthmate, karigar, cognara, verdara, scriptorium, codespark, gynaegenius]
 
 export const publishedProjects = projects.filter((p) => p.status === 'published')
 

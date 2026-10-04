@@ -32,6 +32,14 @@ const glyphs = {
   ),
   // Health / care — a heart.
   heart: <path d="M12 20s-7-4.5-9.2-8.4A4.6 4.6 0 0 1 12 6a4.6 4.6 0 0 1 9.2 5.6C19 15.5 12 20 12 20z" />,
+  // Marketplace — a storefront with an awning.
+  shop: (
+    <>
+      <path d="M4 4h16l1.5 5h-19L4 4z" />
+      <path d="M4 9v11h16V9" />
+      <path d="M10 20v-6h4v6" />
+    </>
+  ),
   // Neutral default — stacked layers.
   default: (
     <>

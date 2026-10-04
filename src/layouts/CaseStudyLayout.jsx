@@ -7,6 +7,7 @@ import VerdaraDebateFlowDiagram from '../components/VerdaraDebateFlowDiagram'
 import HistoryQuestRagDiagram from '../components/HistoryQuestRagDiagram'
 import CodeSparkFlowDiagram from '../components/CodeSparkFlowDiagram'
 import GynaeRagDiagram from '../components/GynaeRagDiagram'
+import KarigarCheckoutDiagram from '../components/KarigarCheckoutDiagram'
 import { realLinks, linkKind, LinkGlyph, cardQuickLinks, linkTitle } from '../components/linkMeta'
 import { profile } from '../data/content'
 
@@ -54,6 +55,11 @@ const diagrams = {
     Component: GynaeRagDiagram,
     caption:
       "Answers come only from retrieved context — if it isn't in the docs, the model defers to a real doctor.",
+  },
+  karigarCheckout: {
+    Component: KarigarCheckoutDiagram,
+    caption:
+      'Rows locked and totals recomputed on the server; one Stripe payment, split into an order per artisan once the webhook confirms it.',
   },
 }
 
