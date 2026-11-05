@@ -14,6 +14,9 @@ export default function Footer() {
           <a href={profile.linkedin} className="-my-2 inline-block py-2 text-[13px] text-muted hover:text-ink">
             LinkedIn
           </a>
+          <a href={profile.medium} target="_blank" rel="noopener noreferrer" className="-my-2 inline-block py-2 text-[13px] text-muted hover:text-ink">
+            Medium
+          </a>
           <a href={`mailto:${profile.email}`} className="-my-2 inline-block py-2 text-[13px] text-muted hover:text-ink">
             Email
           </a>

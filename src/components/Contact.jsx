@@ -47,6 +47,9 @@ export default function Contact({ number }) {
             <a href={profile.github} target="_blank" rel="noopener noreferrer" className={secondary}>
               GitHub <ArrowUpRight />
             </a>
+            <a href={profile.medium} target="_blank" rel="noopener noreferrer" className={secondary}>
+              Medium <ArrowUpRight />
+            </a>
             <a href={profile.resumeUrl} target="_blank" rel="noopener noreferrer" className={secondary}>
               Résumé <ArrowUpRight />
             </a>

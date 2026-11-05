@@ -16,6 +16,16 @@ const LinkedInGlyph = () => (
   </svg>
 )
 
+// Medium's mark (three ovals), in currentColor so it matches the light
+// GitHub / LinkedIn glyphs instead of a heavy filled square.
+const MediumGlyph = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <ellipse cx="7" cy="12" rx="5.6" ry="5.6" />
+    <ellipse cx="16.2" cy="12" rx="2.8" ry="5.3" />
+    <ellipse cx="21.2" cy="12" rx="1.1" ry="4.8" />
+  </svg>
+)
+
 const iconLink =
   'flex h-[46px] w-[46px] items-center justify-center rounded-lg border border-line text-muted transition-colors duration-200 hover:border-forest-muted hover:bg-chip hover:text-forest'
 
@@ -82,12 +92,18 @@ export default function Hero() {
             >
               Get in touch
             </a>
-            <a href={profile.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub" className={iconLink}>
-              <GitHubGlyph />
-            </a>
-            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn" className={iconLink}>
-              <LinkedInGlyph />
-            </a>
+            {/* social icons grouped, so on narrow screens they wrap together */}
+            <div className="flex gap-3">
+              <a href={profile.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub" className={iconLink}>
+                <GitHubGlyph />
+              </a>
+              <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn" className={iconLink}>
+                <LinkedInGlyph />
+              </a>
+              <a href={profile.medium} target="_blank" rel="noopener noreferrer" aria-label="Medium" title="Medium" className={iconLink}>
+                <MediumGlyph />
+              </a>
+            </div>
           </div>
 
           {/* Proof strip — the quickest facts a recruiter scans for. */}

@@ -34,6 +34,7 @@ export const profile = {
   email: 'laiba.idrees2003@gmail.com',
   github: 'https://github.com/missLaiba22',
   linkedin: 'https://www.linkedin.com/in/laiba-idrees/',
+  medium: 'https://medium.com/@laiba.idrees2003',
   resumeUrl: 'https://drive.google.com/file/d/1BXFov0kSusaTxK1eXxthC3FK7RV3BxDJ/view?usp=sharing',
 
   // Shows the "Open to roles" badge in the hero. Set false when not looking.
