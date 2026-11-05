@@ -1,16 +1,17 @@
-/** The forest-green mono label that anchors each section, with an optional
- *  section number ("01 — Projects") for an editorial rhythm down the page. */
+/** The heading that anchors each section in the left column: a small gold
+ *  number ("01 —") above the section name in the display font. On desktop it
+ *  sticks below the navbar while its section scrolls past. */
 export default function SectionLabel({ children, number, className = '' }) {
   return (
-    <div
-      className={`pt-1 font-mono text-[12.5px] font-semibold uppercase tracking-[0.06em] text-forest ${className}`}
-    >
+    <div className={`md:sticky md:top-28 md:self-start ${className}`}>
       {number && (
-        <span className="mb-1.5 block text-[11px] font-medium tracking-[0.1em] text-gold">
+        <span className="mb-2 block font-mono text-[12px] font-medium tracking-[0.1em] text-gold">
           {number} —
         </span>
       )}
-      {children}
+      <h2 className="font-display text-[24px] font-semibold leading-[1.15] tracking-[-0.025em] text-forest-dark md:text-[26px]">
+        {children}
+      </h2>
     </div>
   )
 }
