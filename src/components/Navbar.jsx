@@ -2,9 +2,35 @@ import { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { profile, nav } from '../data/content'
 
+// Which section is under the navbar right now, so its link can be highlighted.
+// A section counts as active once its top passes ~35% down the viewport.
+function useActiveSection(ids) {
+  const [active, setActive] = useState(null)
+  useEffect(() => {
+    const els = ids.map((id) => document.getElementById(id)).filter(Boolean)
+    if (!els.length) return
+    const io = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((e) => e.isIntersecting)
+        if (visible.length) {
+          visible.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
+          setActive(visible[0].target.id)
+        }
+      },
+      { rootMargin: '-35% 0px -60% 0px' },
+    )
+    els.forEach((el) => io.observe(el))
+    return () => io.disconnect()
+  }, [ids])
+  return active
+}
+
+const sectionIds = nav.map((item) => item.href.split('#')[1])
+
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const navRef = useRef(null)
+  const active = useActiveSection(sectionIds)
 
   // Close the mobile menu when tapping outside it, pressing Escape, or scrolling.
   useEffect(() => {
@@ -41,16 +67,26 @@ export default function Navbar() {
 
         {/* Desktop links */}
         <div className="hidden items-center gap-8 md:flex">
-          {nav.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="group relative text-sm font-medium text-muted transition-colors hover:text-ink"
-            >
-              {item.label}
-              <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-forest transition-transform duration-300 ease-out group-hover:scale-x-100" />
-            </a>
-          ))}
+          {nav.map((item) => {
+            const isActive = active === item.href.split('#')[1]
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                aria-current={isActive ? 'location' : undefined}
+                className={`group relative text-sm font-medium transition-colors hover:text-ink ${
+                  isActive ? 'text-ink' : 'text-muted'
+                }`}
+              >
+                {item.label}
+                <span
+                  className={`absolute -bottom-1 left-0 h-px w-full origin-left bg-forest transition-transform duration-300 ease-out group-hover:scale-x-100 ${
+                    isActive ? 'scale-x-100' : 'scale-x-0'
+                  }`}
+                />
+              </a>
+            )
+          })}
           <a
             href={profile.resumeUrl}
             target="_blank"

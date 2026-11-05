@@ -2,7 +2,7 @@ import Reveal from './Reveal'
 import SectionLabel from './SectionLabel'
 import { fieldNote } from '../data/content'
 
-export default function FieldNotes() {
+export default function FieldNotes({ number }) {
   return (
     <Reveal
       as="section"
@@ -10,7 +10,7 @@ export default function FieldNotes() {
       className="scroll-mt-24 border-t border-line py-16 md:py-[72px]"
     >
       <div className="grid grid-cols-1 gap-8 md:grid-cols-[200px_1fr] md:gap-14">
-        <SectionLabel>{fieldNote.label}</SectionLabel>
+        <SectionLabel number={number}>{fieldNote.label}</SectionLabel>
         <div className="max-w-read">
           <h3 className="mb-4 font-serif text-[30px] leading-tight text-ink">
             {fieldNote.title}

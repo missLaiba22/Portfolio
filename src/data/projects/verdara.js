@@ -13,6 +13,7 @@ export const verdara = {
   status: 'published',
   icon: 'debate',
   cardTag: 'Agentic AI',
+  cover: '/projects/verdara/card.webp',
   cardTagline:
     'A multi-agent debate platform — research, pro, con and judge agents on LangGraph — with human-in-the-loop review and state checkpointed to SQLite.',
   metrics: [

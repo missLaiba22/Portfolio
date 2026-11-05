@@ -2,7 +2,7 @@ import Reveal from './Reveal'
 import SectionLabel from './SectionLabel'
 import { profile } from '../data/content'
 
-export default function About() {
+export default function About({ number }) {
   return (
     <Reveal
       as="section"
@@ -10,7 +10,7 @@ export default function About() {
       className="scroll-mt-24 border-t border-line py-16 md:py-[72px]"
     >
       <div className="grid grid-cols-1 gap-8 md:grid-cols-[200px_1fr] md:gap-14">
-        <SectionLabel>About</SectionLabel>
+        <SectionLabel number={number}>About</SectionLabel>
         <p className="max-w-read text-[17px] leading-[1.75] text-muted2">
           {profile.about}
         </p>

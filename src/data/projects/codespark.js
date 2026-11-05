@@ -12,6 +12,7 @@ export const codespark = {
   status: 'published',
   icon: 'code',
   cardTag: 'AI coding',
+  cover: '/projects/codespark/card.webp',
   cardTagline:
     'An AI coding assistant from a 48-hour hackathon: generate, optimize, explain, debug and test — five endpoints behind one Streamlit app.',
   metrics: [

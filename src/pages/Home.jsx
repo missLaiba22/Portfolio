@@ -8,17 +8,19 @@ import FieldNotes from '../components/FieldNotes'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
 
+// Strongest proof first: work, then where it was done, then supporting detail.
+// Keep `nav` in src/data/content.js in the same order.
 export default function Home() {
   return (
     <>
       <Navbar />
       <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Experience />
-      <FieldNotes />
-      <Contact />
+      <Projects number="01" />
+      <Experience number="02" />
+      <Skills number="03" />
+      <About number="04" />
+      <FieldNotes number="05" />
+      <Contact number="06" />
       <Footer />
     </>
   )

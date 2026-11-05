@@ -13,6 +13,7 @@ export const gynaegenius = {
   status: 'published',
   icon: 'heart',
   cardTag: 'Healthcare RAG',
+  cover: '/projects/gynaegenius/card.webp',
   cardTagline:
     "A RAG women's-health assistant from a 3-day hackathon: WHO documents embedded into Astra DB, answered by Cohere — and prompted to defer to a real doctor.",
   metrics: [

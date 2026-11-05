@@ -34,30 +34,55 @@ export const profile = {
   github: 'https://github.com/missLaiba22',
   linkedin: 'https://www.linkedin.com/in/laiba-idrees/',
   resumeUrl: 'https://drive.google.com/file/d/1BXFov0kSusaTxK1eXxthC3FK7RV3BxDJ/view?usp=sharing',
+
+  // Shows the "Open to roles" badge in the hero. Set false when not looking.
+  openToRoles: true,
 }
 
-// Skills — populated ONLY from tech actually evidenced in the HealthMate case
-// study. Review and extend as more case studies are written; do not pad with
-// tools you have not shipped.
+// Hero proof strip — short, verifiable facts. The case-study count is added
+// automatically in Hero.jsx from the published projects.
+export const highlights = [
+  { value: '1st Prize', label: 'COMSATS Career Expo 2025' },
+  { value: 'Fellow', label: 'DevWeekend 2026' },
+]
+
+// Skills — only tech evidenced in a case study or the experience entry (noted
+// beside each AI tool, plus PyTorch/TensorFlow for HealthMate's models). Do not
+// pad with tools you have not shipped. Each name needs an icon in
+// src/components/skillIcons.jsx (brand mark or glyph), or the tile shows none.
+// Kept short on purpose: one row per group, strongest tools only.
 export const skillCategories = [
   {
-    name: 'Core Technologies',
-    items: ['Python', 'FastAPI', 'React', 'PostgreSQL', 'MongoDB', 'Docker', 'AWS'],
+    name: 'Languages & Web',
+    items: ['Python', 'TypeScript', 'FastAPI', 'React', 'PostgreSQL', 'MongoDB'],
   },
   {
-    name: 'AI Engineering',
+    name: 'AI & ML',
+    items: [
+      'PyTorch', // HealthMate segmentation models
+      'TensorFlow', // HealthMate segmentation models
+      'LangGraph', // Cognara, Verdara
+      'LangChain', // Scriptorium
+      'Hugging Face', // Karigar embeddings
+      'pgvector', // RepoViva, Karigar
+    ],
+  },
+  {
+    name: 'Cloud & DevOps',
+    items: ['AWS', 'Docker', 'GitHub Actions', 'Git'],
+  },
+  {
+    name: 'Specialties',
     items: [
       'LLM Applications',
       'RAG Systems',
       'AI Agents',
-      'Prompt Engineering',
       'Computer Vision',
-      'Speech AI',
+      'Voice Pipelines',
+      'System Design',
+      'Event-driven Architecture',
+      'REST APIs',
     ],
-  },
-  {
-    name: 'Foundations',
-    items: ['REST APIs', 'JWT Authentication', 'System Design', 'Git'],
   },
 ]
 
@@ -125,11 +150,12 @@ export const experience = [
   },
 ]
 
+// Same order as the sections on the home page (src/pages/Home.jsx).
 export const nav = [
-  { href: '/#about', label: 'About' },
-  { href: '/#skills', label: 'Skills' },
   { href: '/#projects', label: 'Projects' },
   { href: '/#experience', label: 'Experience' },
+  { href: '/#skills', label: 'Skills' },
+  { href: '/#about', label: 'About' },
   { href: '/#notes', label: 'Reflections' },
   { href: '/#contact', label: 'Contact' },
 ]

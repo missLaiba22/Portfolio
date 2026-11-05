@@ -11,6 +11,7 @@ export const cognara = {
   status: 'published',
   icon: 'agent',
   cardTag: 'Agentic AI',
+  cover: '/projects/cognara/card.webp',
   cardTagline:
     'A LangGraph research agent — Tavily search into Gemini synthesis — returning a sourced brief from a Streamlit UI or the CLI.',
   metrics: [

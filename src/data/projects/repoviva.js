@@ -13,8 +13,33 @@ export const repoviva = {
   status: 'published',
   icon: 'mic',
   cardTag: 'Voice AI',
+  // Cover for the regular project card (e.g. on /projects); the home spotlight uses `gallery`.
+  cover: '/projects/repoviva/card.webp',
   cardTagline:
     'Connect a GitHub repo, answer spoken questions about your own code, and get a graded report that points to your files. Four FastAPI services on AWS, connected by SQS and EventBridge.',
+  // Product tour on the home-page spotlight (files in public/projects/repoviva/).
+  gallery: [
+    {
+      src: '/projects/repoviva/landing.webp',
+      caption: 'Sign in',
+      alt: 'RepoViva landing page: practise explaining the code you actually wrote, with a sample spoken question.',
+    },
+    {
+      src: '/projects/repoviva/repositories.webp',
+      caption: 'Pick a repo',
+      alt: 'RepoViva repositories page with a connected repository ready to practise.',
+    },
+    {
+      src: '/projects/repoviva/interview.webp',
+      caption: 'Interview',
+      alt: 'RepoViva live interview: question 1 of 6 about the repository, read aloud, with a typed-answer fallback.',
+    },
+    {
+      src: '/projects/repoviva/report.webp',
+      caption: 'Get graded',
+      alt: 'RepoViva interview report with correctness and clarity scores and what to work on next.',
+    },
+  ],
   metrics: [
     { value: '6×', label: 'Faster speech-to-text' },
     { value: '95%', label: 'Retrieval recall@5' },

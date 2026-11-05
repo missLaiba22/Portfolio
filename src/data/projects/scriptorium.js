@@ -13,6 +13,7 @@ export const scriptorium = {
   status: 'published',
   icon: 'compass',
   cardTag: 'RAG',
+  cover: '/projects/scriptorium/card.webp',
   cardTagline:
     'A RAG history chatbot, rebuilt solo after I found that indexing and querying had been embedding text into different vector spaces.',
   metrics: [

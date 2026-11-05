@@ -2,11 +2,11 @@ import Reveal from './Reveal'
 import SectionLabel from './SectionLabel'
 import { experience } from '../data/content'
 
-export default function Experience() {
+export default function Experience({ number }) {
   return (
-    <section id="experience" className="scroll-mt-24 border-t border-line py-16 md:py-[72px]">
+    <section id="experience" className="scroll-mt-24 py-16 md:py-[72px]">
       <div className="grid grid-cols-1 gap-8 md:grid-cols-[200px_1fr] md:gap-14">
-        <SectionLabel>Experience</SectionLabel>
+        <SectionLabel number={number}>Experience</SectionLabel>
         <div className="flex flex-col gap-4">
           {experience.map((e, i) => (
             <Reveal

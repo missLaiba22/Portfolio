@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import CaseStudy from './pages/CaseStudy'
+import AllProjects from './pages/AllProjects'
 
 /** On navigation: honour #hash targets, otherwise scroll to top. */
 function ScrollManager() {
@@ -25,6 +26,7 @@ export default function App() {
       <ScrollManager />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/projects" element={<AllProjects />} />
         <Route path="/work/:slug" element={<CaseStudy />} />
         <Route path="*" element={<Home />} />
       </Routes>

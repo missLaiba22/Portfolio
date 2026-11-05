@@ -43,3 +43,8 @@ export const publishedProjects = projects.filter((p) => p.status === 'published'
 export function getProject(slug) {
   return projects.find((p) => p.slug === slug)
 }
+
+// Selected work on the home page: the first gets the full-width spotlight, the
+// rest are cards beside each other. Every published project is on /projects.
+const HOME_SLUGS = ['repoviva', 'healthmate', 'karigar']
+export const homeProjects = HOME_SLUGS.map(getProject).filter((p) => p?.status === 'published')

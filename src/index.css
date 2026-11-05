@@ -10,6 +10,9 @@
   body {
     @apply bg-cream font-sans text-ink antialiased;
     margin: 0;
+    /* full-bleed bands are 100vw wide; clip keeps them from adding a sideways
+       scroll (100vw includes the scrollbar) without breaking sticky nav. */
+    overflow-x: clip;
   }
 
   ::selection {
@@ -27,6 +30,44 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* A section whose tinted background runs edge to edge of the viewport while
+   its content stays in the centred page column. */
+.full-bleed-band {
+  position: relative;
+  isolation: isolate;
+}
+.full-bleed-band::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  z-index: -1;
+  background: #f3ecdf; /* between cream and band */
+  border-top: 1px solid theme('colors.line');
+  border-bottom: 1px solid theme('colors.line');
+}
+
+/* ScreenShowcase: the active tab's bar fills over the interval, then the
+   component advances (onAnimationEnd). Hovering the showcase pauses it. */
+@keyframes showcaseFill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+.showcase-progress {
+  animation-name: showcaseFill;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+.showcase:hover .showcase-progress {
+  animation-play-state: paused;
 }
 
 .animate-hero {

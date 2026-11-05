@@ -2,9 +2,12 @@ import { Link } from 'react-router-dom'
 import Reveal from './Reveal'
 import ProjectIcon from './ProjectIcon'
 import { cardQuickLinks, LinkGlyph, linkTitle } from './linkMeta'
+import CountUp from './CountUp'
+import PhoneStrip from './PhoneStrip'
+import BrowserStrip from './BrowserStrip'
 
 export default function ProjectCard({ project, delay = 0 }) {
-  const { slug, title, featured, cardTag, cardTagline, metrics = [], icon, links = [] } = project
+  const { slug, title, featured, cardTag, cardTagline, metrics = [], icon, links = [], cover, phones } = project
   const quick = cardQuickLinks(links)
 
   return (
@@ -12,6 +15,19 @@ export default function ProjectCard({ project, delay = 0 }) {
       delay={delay}
       className="group relative flex h-full flex-col rounded-xl border border-line bg-card p-5 transition-colors duration-200 hover:border-forest-muted sm:p-6"
     >
+      {/* Optional visuals, set in the project's data file:
+          `phones` (mobile app screens in device frames) or `cover` (one wide screenshot). */}
+      {phones?.length > 0 && (
+        <div className="-mx-5 -mt-5 mb-5 overflow-hidden rounded-t-xl border-b border-line sm:-mx-6 sm:-mt-6">
+          <PhoneStrip phones={phones} />
+        </div>
+      )}
+      {!phones?.length && cover && (
+        <div className="-mx-5 -mt-5 mb-5 overflow-hidden rounded-t-xl border-b border-line sm:-mx-6 sm:-mt-6">
+          <BrowserStrip src={cover} alt={`${title} screenshot`} label={title.toLowerCase()} />
+        </div>
+      )}
+
       {/* Header: icon + category on one line, so text uses the full card width */}
       <div className="flex items-center gap-3">
         <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-line bg-forest-tag text-forest">
@@ -45,7 +61,9 @@ export default function ProjectCard({ project, delay = 0 }) {
             {metrics.map((m) => (
               <div key={m.label} className="min-w-0">
                 <dt className="sr-only">{m.label}</dt>
-                <dd className="font-serif text-[20px] leading-tight text-ink">{m.value}</dd>
+                <dd className="font-serif text-[20px] leading-tight text-ink">
+                  <CountUp value={m.value} />
+                </dd>
                 <dd className="mt-1 font-mono text-[10px] uppercase leading-snug tracking-[0.04em] text-faint2">
                   {m.label}
                 </dd>

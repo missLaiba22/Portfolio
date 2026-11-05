@@ -13,6 +13,8 @@ export const karigar = {
   status: 'published',
   icon: 'shop',
   cardTag: 'Full-stack',
+  // Card cover: the live site's home page (public/projects/karigar/).
+  cover: '/projects/karigar/home.webp',
   cardTagline:
     'A multi-vendor marketplace for Pakistani artisans. FastAPI + PostgreSQL, one Stripe checkout split into an order per shop, and a RAG shopping assistant grounded in the live catalog.',
   metrics: [

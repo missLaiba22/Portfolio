@@ -15,6 +15,22 @@ export const healthmate = {
   cardTag: 'Medical AI',
   cardTagline:
     'A two-part medical assistant — five-organ scan segmentation and a bilingual voice-to-voice companion — shaped with clinical input.',
+  // App screens shown in phone frames on the project card (public/projects/healthmate/).
+  // The appointment screen was left out: it shows a real person's email.
+  phones: [
+    {
+      src: '/projects/healthmate/scan-analysis.webp',
+      alt: 'HealthMate scan analysis: choose a brain MRI, liver CT or kidney CT scan to analyse.',
+    },
+    {
+      src: '/projects/healthmate/voice-avatar.webp',
+      alt: 'HealthMate voice assistant: a 3D avatar asks "How can I help you?" with a microphone button.',
+    },
+    {
+      src: '/projects/healthmate/reports.webp',
+      alt: 'HealthMate medical reports: generate a new report or open past ones.',
+    },
+  ],
   metrics: [
     { value: '5', label: 'Medical AI models' },
     { value: 'Voice + Vision', label: 'Multimodal AI' },
