@@ -9,7 +9,7 @@ export default function About({ number }) {
       id="about"
       className="scroll-mt-24 border-t border-line py-16 md:py-[72px]"
     >
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-[200px_1fr] md:gap-14">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[200px_1fr] lg:gap-14">
         <SectionLabel number={number}>About</SectionLabel>
         <p className="max-w-read text-[17px] leading-[1.75] text-muted2">
           {profile.about}

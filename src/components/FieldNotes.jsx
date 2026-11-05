@@ -9,7 +9,7 @@ export default function FieldNotes({ number }) {
       id="notes"
       className="scroll-mt-24 border-t border-line py-16 md:py-[72px]"
     >
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-[200px_1fr] md:gap-14">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[200px_1fr] lg:gap-14">
         <SectionLabel number={number}>{fieldNote.label}</SectionLabel>
         <div className="max-w-read">
           <h3 className="mb-4 font-display font-semibold tracking-[-0.03em] text-[24px] leading-tight text-ink">

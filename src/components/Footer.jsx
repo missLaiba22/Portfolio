@@ -8,13 +8,13 @@ export default function Footer() {
           © {new Date().getFullYear()} {profile.name}
         </div>
         <div className="flex gap-5">
-          <a href={profile.github} className="text-[13px] text-muted hover:text-ink">
+          <a href={profile.github} className="-my-2 inline-block py-2 text-[13px] text-muted hover:text-ink">
             GitHub
           </a>
-          <a href={profile.linkedin} className="text-[13px] text-muted hover:text-ink">
+          <a href={profile.linkedin} className="-my-2 inline-block py-2 text-[13px] text-muted hover:text-ink">
             LinkedIn
           </a>
-          <a href={`mailto:${profile.email}`} className="text-[13px] text-muted hover:text-ink">
+          <a href={`mailto:${profile.email}`} className="-my-2 inline-block py-2 text-[13px] text-muted hover:text-ink">
             Email
           </a>
         </div>

@@ -60,13 +60,13 @@ export default function Navbar() {
       <div className="flex h-[72px] items-center justify-between">
         <Link
           to="/"
-          className="text-[15px] font-bold tracking-[-0.01em] text-ink"
+          className="whitespace-nowrap text-[15px] font-bold tracking-[-0.01em] text-ink"
         >
           {profile.name}
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-6 md:flex lg:gap-8">
           {nav.map((item) => {
             const isActive = active === item.href.split('#')[1]
             return (

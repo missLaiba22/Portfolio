@@ -52,11 +52,15 @@ export default function ScreenShowcase({ shots, title }) {
               </span>
               <span className={`mt-2.5 flex items-baseline gap-2 text-[12.5px] font-semibold transition-colors ${isActive ? 'text-cream' : 'text-cream/50 group-hover/tab:text-cream/80'}`}>
                 <span className="font-mono text-[10.5px] text-forest-muted">0{i + 1}</span>
-                <span className="truncate">{s.caption}</span>
+                {/* names only from sm; on phones the active name gets its own line below */}
+                <span className="hidden truncate sm:inline">{s.caption}</span>
               </span>
             </button>
           )
         })}
+      </div>
+      <div className="-mt-1 mb-4 text-[13.5px] font-semibold text-cream sm:hidden" aria-hidden="true">
+        {shots[active].caption}
       </div>
 
       {/* Browser frame */}

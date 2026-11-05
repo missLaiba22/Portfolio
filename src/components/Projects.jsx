@@ -17,7 +17,7 @@ export default function Projects({ number }) {
       // full-bleed-band paints a tinted strip edge to edge (see index.css)
       className="full-bleed-band scroll-mt-24 py-16 md:py-[72px]"
     >
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-[200px_1fr] md:gap-14">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[200px_1fr] lg:gap-14">
         <SectionLabel number={number}>Selected work</SectionLabel>
         <div className="min-w-0">
           {spotlight && <ProjectSpotlight project={spotlight} />}

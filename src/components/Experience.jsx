@@ -39,23 +39,23 @@ const Arrow = () => (
 export default function Experience({ number }) {
   return (
     <section id="experience" className="scroll-mt-24 py-16 md:py-[72px]">
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-[200px_1fr] md:gap-14">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[200px_1fr] lg:gap-14">
         <SectionLabel number={number}>Experience</SectionLabel>
 
         <ol className="relative">
           {/* the timeline line, behind the badges */}
-          <span className="absolute bottom-6 left-[19px] top-6 w-px bg-gradient-to-b from-forest-muted via-line to-transparent" aria-hidden="true" />
+          <span className="absolute bottom-6 left-[19px] top-6 hidden w-px sm:block bg-gradient-to-b from-forest-muted via-line to-transparent" aria-hidden="true" />
 
           {experience.map((e, i) => {
             const current = /present/i.test(e.period)
             const project = e.project ? getProject(e.project) : null
             return (
-              <li key={`${e.org}-${e.role}`} className="group relative grid grid-cols-[40px_1fr] gap-4 pb-5 last:pb-0 sm:gap-5">
+              <li key={`${e.org}-${e.role}`} className="group relative grid grid-cols-1 pb-4 last:pb-0 sm:grid-cols-[40px_1fr] sm:gap-5 sm:pb-5">
                 {/* badge on the line: the org's logo (or a glyph). ring-cream cuts the
                     line around it; the current role gets a green outline. */}
                 {e.logo ? (
                   <span
-                    className={`relative z-10 mt-6 block h-10 w-10 overflow-hidden rounded-xl border border-line bg-card shadow-[0_6px_16px_-8px_rgba(28,38,34,0.4)] ring-4 ring-cream transition-transform duration-300 group-hover:scale-105 ${
+                    className={`relative z-10 mt-6 hidden h-10 w-10 overflow-hidden sm:block rounded-xl border border-line bg-card shadow-[0_6px_16px_-8px_rgba(28,38,34,0.4)] ring-4 ring-cream transition-transform duration-300 group-hover:scale-105 ${
                       current ? 'outline outline-2 outline-offset-[5px] outline-forest' : ''
                     }`}
                   >
@@ -63,7 +63,7 @@ export default function Experience({ number }) {
                   </span>
                 ) : (
                   <span
-                    className={`relative z-10 mt-6 flex h-10 w-10 items-center justify-center rounded-xl ring-4 ring-cream transition-transform duration-300 group-hover:scale-105 ${
+                    className={`relative z-10 mt-6 hidden h-10 w-10 items-center sm:flex justify-center rounded-xl ring-4 ring-cream transition-transform duration-300 group-hover:scale-105 ${
                       current ? 'bg-forest text-cream' : 'border border-forest-muted/50 bg-forest-tag text-forest'
                     }`}
                   >
@@ -76,7 +76,10 @@ export default function Experience({ number }) {
                   className="min-w-0 rounded-2xl border border-line bg-card p-5 transition-colors duration-300 group-hover:border-forest-muted/70 sm:p-6"
                 >
                   <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
-                    <div className="min-w-0">
+                    {e.logo && (
+                      <img src={e.logo} alt="" loading="lazy" className="h-10 w-10 shrink-0 rounded-lg border border-line sm:hidden" />
+                    )}
+                    <div className="min-w-0 basis-[calc(100%-56px)] sm:basis-auto">
                       <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
                         <h3 className="text-[18px] font-semibold leading-snug text-ink">{e.role}</h3>
                         {current && (
@@ -102,7 +105,7 @@ export default function Experience({ number }) {
 
                   {/* Labelled parts side by side, each with an accent rule */}
                   {e.highlights?.length > 0 && (
-                    <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                    <div className="mt-4 grid gap-3 md:grid-cols-2">
                       {e.highlights.map((h) => (
                         <div key={h.label} className="rounded-xl border-l-2 border-forest bg-chip/70 px-4 py-3">
                           <div className="font-mono text-[10.5px] font-semibold uppercase tracking-[0.07em] text-forest">{h.label}</div>

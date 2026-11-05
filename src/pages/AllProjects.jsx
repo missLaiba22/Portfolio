@@ -53,7 +53,7 @@ export default function AllProjects() {
             onClick={() => goTo(i)}
             aria-label={`Page ${i + 1} of ${pages}`}
             aria-current={i === page ? 'true' : undefined}
-            className={`h-2 rounded-full transition-all duration-300 ${i === page ? 'w-6 bg-forest' : 'w-2 bg-line hover:bg-forest-muted'}`}
+            className={`relative h-2 rounded-full transition-all duration-300 after:absolute after:-inset-3 after:content-[''] ${i === page ? 'w-6 bg-forest' : 'w-2 bg-line hover:bg-forest-muted'}`}
           />
         ))}
         <span className="ml-2 font-mono text-[12px] text-faint2">

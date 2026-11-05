@@ -3,7 +3,7 @@
  *  sticks below the navbar while its section scrolls past. */
 export default function SectionLabel({ children, number, className = '' }) {
   return (
-    <div className={`md:sticky md:top-28 md:self-start ${className}`}>
+    <div className={`lg:sticky lg:top-28 lg:self-start ${className}`}>
       {number && (
         <span className="mb-2 block font-mono text-[12px] font-medium tracking-[0.1em] text-gold">
           {number} —

@@ -25,23 +25,23 @@ export default function Hero() {
   const proof = [...highlights, { value: String(publishedProjects.length), label: 'Shipped case studies' }]
 
   return (
-    <section className="grid grid-cols-1 gap-6 py-16 md:grid-cols-[200px_1fr] md:gap-14 md:py-24">
+    <section className="grid grid-cols-1 gap-6 py-16 lg:grid-cols-[200px_1fr] lg:gap-14 md:py-24">
       <div
-        className="animate-hero flex items-center gap-4 pt-1 md:block md:pt-4"
+        className="animate-hero flex items-center gap-4 pt-1 lg:block lg:pt-4"
         style={{ animationDelay: '0ms' }}
       >
         {/* Small avatar on phones/tablets; the large portrait shows on desktop. */}
         <img
           src={portrait}
           alt=""
-          className="h-14 w-14 shrink-0 rounded-full object-cover object-top ring-2 ring-gold/60 ring-offset-2 ring-offset-cream lg:hidden"
+          className="h-14 w-14 shrink-0 rounded-full object-cover object-top ring-2 ring-gold/60 ring-offset-2 ring-offset-cream lg:mb-4 xl:hidden"
         />
         <div className="font-mono text-[12.5px] font-semibold uppercase tracking-[0.06em] text-forest">
           {profile.role}
         </div>
       </div>
 
-      <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[1fr_250px]">
+      <div className="grid grid-cols-1 items-start gap-12 xl:grid-cols-[1fr_250px]">
         <div className="max-w-read">
           {profile.openToRoles && (
             <div
@@ -93,7 +93,7 @@ export default function Hero() {
           {/* Proof strip — the quickest facts a recruiter scans for. */}
           <dl
             // flex (not a fixed 3-col grid) so it reads well with any number of facts
-            className="animate-hero mt-10 flex flex-wrap gap-x-14 gap-y-5 border-t border-line pt-6 sm:max-w-[560px]"
+            className="animate-hero mt-10 grid grid-cols-2 gap-x-6 gap-y-5 border-t sm:flex sm:flex-wrap sm:gap-x-14 border-line pt-6 sm:max-w-[560px]"
             style={{ animationDelay: '360ms' }}
           >
             {proof.map((p) => (
@@ -110,7 +110,7 @@ export default function Hero() {
 
         {/* Portrait — desktop only. Arch-shaped photo in a white mat with a soft
             green shadow, a gold arch outline offset behind it, and a location tag. */}
-        <div className="animate-hero relative hidden justify-self-end lg:mt-10 lg:block" style={{ animationDelay: '200ms' }}>
+        <div className="animate-hero relative hidden justify-self-end xl:mt-10 xl:block" style={{ animationDelay: '200ms' }}>
           <div className="relative w-[220px]">
             {/* soft green halo */}
             <div className="absolute -left-8 -top-6 h-32 w-32 rounded-full bg-forest-tag" aria-hidden="true" />

@@ -114,7 +114,7 @@ export default function ProjectSpotlight({ project }) {
   // With screenshots: text + metrics left, the product tour right (stacked on phones).
   if (hasGallery) {
     return (
-      <Reveal className="group relative grid overflow-hidden rounded-2xl border border-line bg-card transition-colors duration-200 hover:border-forest-muted lg:grid-cols-[1fr_1.2fr]">
+      <Reveal className="group relative grid overflow-hidden rounded-2xl border border-line bg-card transition-colors duration-200 hover:border-forest-muted xl:grid-cols-[1fr_1.2fr]">
         <div className="flex flex-col p-6 sm:p-7">
           {header}
           {titleBlock}
@@ -122,7 +122,7 @@ export default function ProjectSpotlight({ project }) {
           {footer}
         </div>
         {/* relative z-10: the tour's tabs stay clickable above the stretched link */}
-        <div className="relative z-10 border-t border-line lg:border-l lg:border-t-0">
+        <div className="relative z-10 border-t border-line xl:border-l xl:border-t-0">
           <ScreenShowcase shots={gallery} title={title} />
         </div>
       </Reveal>
