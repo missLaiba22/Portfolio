@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- "LI" monogram: forest green tile, white L, gold I (site palette) -->
+  <rect width="64" height="64" rx="14" fill="#33574a"/>
+  <rect x="17" y="16" width="8" height="32" rx="1.5" fill="#ffffff"/>
+  <rect x="17" y="40" width="19" height="8" rx="1.5" fill="#ffffff"/>
+  <rect x="40" y="16" width="8" height="32" rx="1.5" fill="#d9b26a"/>
+</svg>

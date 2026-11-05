@@ -7,10 +7,12 @@ import Experience from '../components/Experience'
 import FieldNotes from '../components/FieldNotes'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
+import usePageTitle from '../usePageTitle'
 
 // Strongest proof first: work, then where it was done, then supporting detail.
 // Keep `nav` in src/data/content.js in the same order.
 export default function Home() {
+  usePageTitle()
   return (
     <>
       <Navbar />

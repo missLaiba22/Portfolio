@@ -4,6 +4,7 @@ import ProjectCard from '../components/ProjectCard'
 import Footer from '../components/Footer'
 import { publishedProjects } from '../data/projects'
 import { profile } from '../data/content'
+import usePageTitle from '../usePageTitle'
 
 // Cards per page; prev / next arrows flip between pages.
 // Order comes from src/data/projects/index.js.
@@ -27,6 +28,7 @@ const arrowBtn =
 
 // Every published project, three at a time. Top bar matches the case-study pages.
 export default function AllProjects() {
+  usePageTitle('All projects')
   const [page, setPage] = useState(0)
   const gridRef = useRef(null)
 

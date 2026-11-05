@@ -1,10 +1,12 @@
 import { useParams, Link } from 'react-router-dom'
 import { getProject } from '../data/projects'
 import CaseStudyLayout from '../layouts/CaseStudyLayout'
+import usePageTitle from '../usePageTitle'
 
 export default function CaseStudy() {
   const { slug } = useParams()
   const project = getProject(slug)
+  usePageTitle(project?.status === 'published' ? project.title : 'Case study')
 
   if (!project || project.status !== 'published') {
     return (
