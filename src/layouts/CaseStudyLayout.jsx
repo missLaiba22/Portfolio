@@ -8,6 +8,7 @@ import HistoryQuestRagDiagram from '../components/HistoryQuestRagDiagram'
 import CodeSparkFlowDiagram from '../components/CodeSparkFlowDiagram'
 import GynaeRagDiagram from '../components/GynaeRagDiagram'
 import KarigarArchitectureDiagram from '../components/KarigarArchitectureDiagram'
+import RepoVivaArchitectureDiagram from '../components/RepoVivaArchitectureDiagram'
 import { realLinks, linkKind, LinkGlyph, cardQuickLinks, linkTitle } from '../components/linkMeta'
 import { profile } from '../data/content'
 
@@ -60,6 +61,11 @@ const diagrams = {
     Component: KarigarArchitectureDiagram,
     caption:
       'One FastAPI app with six modules, each layered router → schema → service → repository, on PostgreSQL + pgvector.',
+  },
+  repovivaArchitecture: {
+    Component: RepoVivaArchitectureDiagram,
+    caption:
+      'Four FastAPI services on one EC2 instance: signed HTTP for queries, SQS and EventBridge for jobs and events, and nothing slow on the live voice path.',
   },
 }
 
