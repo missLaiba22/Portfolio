@@ -11,7 +11,7 @@ export default function ModelsBlock({ models }) {
           key={m.organ}
           className="flex flex-col rounded-xl border border-line bg-card p-5 transition-colors duration-300 hover:border-forest-muted/60"
         >
-          <div className="font-serif text-[30px] leading-none text-ink">
+          <div className="font-display font-semibold tracking-[-0.03em] text-[26px] leading-none text-ink">
             {m.metric}
           </div>
           <div className="mt-3 text-[14px] font-semibold text-ink">{m.organ}</div>

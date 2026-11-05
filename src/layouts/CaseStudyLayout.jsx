@@ -114,7 +114,7 @@ export default function CaseStudyLayout({ project }) {
           </div>
         )}
         <h1
-          className="animate-hero font-serif text-[38px] font-normal leading-[1.08] tracking-[-0.01em] text-ink sm:text-[46px]"
+          className="animate-hero font-display font-semibold tracking-[-0.03em] text-[34px] leading-[1.08] text-ink sm:text-[42px]"
           style={{ animationDelay: '80ms' }}
         >
           {title}
@@ -140,7 +140,7 @@ export default function CaseStudyLayout({ project }) {
             <div className="grid grid-cols-3 gap-4 sm:flex sm:gap-x-10">
               {metrics.map((m) => (
                 <div key={m.label}>
-                  <div className="font-serif text-[22px] leading-none text-ink sm:text-[28px]">{m.value}</div>
+                  <div className="font-display font-semibold tracking-[-0.03em] text-[20px] leading-none text-ink sm:text-[24px]">{m.value}</div>
                   <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.04em] text-faint2">
                     {m.label}
                   </div>
@@ -173,7 +173,7 @@ export default function CaseStudyLayout({ project }) {
         <section className="-mx-6 mt-12 bg-band px-6 py-12 sm:-mx-8 sm:px-8 md:py-14">
           <Reveal>
             <p className={`text-[19px] leading-[1.6] text-muted2 ${READ}`}>
-              <span className="font-mono font-semibold not-italic text-forest">Q.</span>{' '}
+              <span className="font-mono font-semibold not-italic text-gold">Q.</span>{' '}
               {question}
             </p>
           </Reveal>
@@ -329,7 +329,7 @@ export default function CaseStudyLayout({ project }) {
           <SectionHeading>
             <span className="text-forest-muted">Lesson learned</span>
           </SectionHeading>
-          <p className={`font-serif text-[24px] italic leading-[1.45] text-ink ${READ}`}>
+          <p className={`font-display text-[20px] font-medium italic leading-[1.55] tracking-[-0.01em] text-ink ${READ}`}>
             {lesson}
           </p>
         </Reveal>

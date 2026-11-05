@@ -12,7 +12,7 @@ export default function FieldNotes({ number }) {
       <div className="grid grid-cols-1 gap-8 md:grid-cols-[200px_1fr] md:gap-14">
         <SectionLabel number={number}>{fieldNote.label}</SectionLabel>
         <div className="max-w-read">
-          <h3 className="mb-4 font-serif text-[30px] leading-tight text-ink">
+          <h3 className="mb-4 font-display font-semibold tracking-[-0.03em] text-[24px] leading-tight text-ink">
             {fieldNote.title}
           </h3>
           <p className="text-[17px] leading-[1.75] text-muted2">{fieldNote.body}</p>

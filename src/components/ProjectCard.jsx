@@ -61,7 +61,7 @@ export default function ProjectCard({ project, delay = 0 }) {
             {metrics.map((m) => (
               <div key={m.label} className="min-w-0">
                 <dt className="sr-only">{m.label}</dt>
-                <dd className="font-serif text-[20px] leading-tight text-ink">
+                <dd className="font-display font-semibold tracking-[-0.03em] text-[18px] leading-tight text-ink">
                   <CountUp value={m.value} />
                 </dd>
                 <dd className="mt-1 font-mono text-[10px] uppercase leading-snug tracking-[0.04em] text-faint2">

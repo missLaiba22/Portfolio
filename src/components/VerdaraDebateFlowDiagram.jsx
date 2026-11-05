@@ -1,27 +1,29 @@
 // Verdara architecture — a multi-agent debate with human-in-the-loop review.
 // Question → Research → Pro/Con → Pause (SQLite checkpoint) → Judge → Human review
 // → Approve / Give opinion (→ Refine) / Reject (re-runs Judge) → Final verdict.
-// Palette: green = model step, warm tan = pause / human decision, cream = start/end.
+// Palette (site theme): green = model step, gold = pause / human decision, white = start/end.
 
 const C = {
-  ink: '#24211d',
-  muted: '#57503f',
-  muted2: '#4a4438',
-  faint: '#857c6a',
-  faint2: '#a89f8c',
+  ink: '#1c2622',
+  muted: '#4b5a53',
+  muted2: '#3e4b45',
+  faint: '#6c7b74',
+  faint2: '#8a9a92',
   forest: '#33574a',
   forestMuted: '#93a99b',
   forestTag: '#e6ede7',
-  band: '#efe6d4',
-  bandBorder: '#cdb68c',
-  line: '#e3dbc9',
-  card: '#fffcf7',
-  arrow: '#a89f8c',
+  // human-decision steps use the theme's gold accent (gold-soft fill, gold border)
+  band: '#f4ead6',
+  bandBorder: '#d4b47c',
+  goldText: '#7a5a22',
+  line: '#dce6df',
+  card: '#ffffff',
+  arrow: '#8a9a92',
 }
 
 const ROLE = {
   node: { fill: C.forestTag, stroke: C.forestMuted, title: C.forest, sub: C.forestMuted },
-  human: { fill: C.band, stroke: C.bandBorder, title: C.muted2, sub: C.faint },
+  human: { fill: C.band, stroke: C.bandBorder, title: C.goldText, sub: C.faint },
   io: { fill: C.card, stroke: C.line, title: C.ink, sub: C.faint2 },
 }
 
@@ -30,11 +32,11 @@ function Node({ cx, cy, w, h, title, sub, role }) {
   return (
     <g>
       <rect x={cx - w / 2} y={cy - h / 2} width={w} height={h} rx="10" fill={s.fill} stroke={s.stroke} />
-      <text x={cx} y={sub ? cy - 4 : cy + 4} textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="13" fontWeight="600" fill={s.title}>
+      <text x={cx} y={sub ? cy - 4 : cy + 4} textAnchor="middle" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="13" fontWeight="600" fill={s.title}>
         {title}
       </text>
       {sub && (
-        <text x={cx} y={cy + 13} textAnchor="middle" fontFamily="'IBM Plex Mono', monospace" fontSize="10.5" fill={s.sub}>
+        <text x={cx} y={cy + 13} textAnchor="middle" fontFamily="'JetBrains Mono', monospace" fontSize="10.5" fill={s.sub}>
           {sub}
         </text>
       )}
@@ -90,7 +92,7 @@ export default function VerdaraDebateFlowDiagram() {
         ))}
 
         {/* loop label */}
-        <text x={628} y={476} textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="11.5" fill={C.faint}>
+        <text x={628} y={476} textAnchor="middle" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="11.5" fill={C.faint}>
           reject re-runs judge
         </text>
 
@@ -110,15 +112,15 @@ export default function VerdaraDebateFlowDiagram() {
         {/* legend */}
         <g transform="translate(90 962)">
           <rect width="15" height="15" rx="4" fill={C.forestTag} stroke={C.forestMuted} />
-          <text x="22" y="12" fontFamily="Inter, sans-serif" fontSize="12.5" fill={C.muted}>model step</text>
+          <text x="22" y="12" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="12.5" fill={C.muted}>model step</text>
         </g>
         <g transform="translate(280 962)">
           <rect width="15" height="15" rx="4" fill={C.band} stroke={C.bandBorder} />
-          <text x="22" y="12" fontFamily="Inter, sans-serif" fontSize="12.5" fill={C.muted}>pause / human decision</text>
+          <text x="22" y="12" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="12.5" fill={C.muted}>pause / human decision</text>
         </g>
         <g transform="translate(540 962)">
           <rect width="15" height="15" rx="4" fill={C.card} stroke={C.line} />
-          <text x="22" y="12" fontFamily="Inter, sans-serif" fontSize="12.5" fill={C.muted}>start / end</text>
+          <text x="22" y="12" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="12.5" fill={C.muted}>start / end</text>
         </g>
       </svg>
     </div>

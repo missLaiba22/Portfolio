@@ -23,10 +23,10 @@ export default function Contact({ number }) {
 
         <div className="relative max-w-[620px]">
           <div className="mb-5 font-mono text-[12px] font-semibold uppercase tracking-[0.08em] text-forest-muted">
-            {number && <span className="mr-2">{number} —</span>}
+            {number && <span className="mr-2 text-gold">{number} —</span>}
             Contact
           </div>
-          <h2 className="mb-4 text-balance font-serif text-[36px] leading-[1.1] text-cream sm:text-[46px]">
+          <h2 className="mb-4 text-balance font-display font-semibold tracking-[-0.03em] text-[30px] leading-[1.12] text-cream sm:text-[40px]">
             Open to Software Engineering roles.
           </h2>
           <p className="mb-8 text-[17px] leading-[1.75] text-cream/75">

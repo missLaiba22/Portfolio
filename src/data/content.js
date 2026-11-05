@@ -17,7 +17,8 @@ export const profile = {
   // Hero H1. Provisional: the "hero-headline pass" is still open in the log.
   // Drawn verbatim from the opening of the locked subline, so it is not
   // invented — it just leads with the "systems" framing the log leans toward.
-  headline: 'Building LLM-powered systems, end to end.',
+  // ‑ is a non-breaking hyphen, so "LLM-powered" never splits across lines.
+  headline: 'Building LLM‑powered systems, end to end.',
 
   // LOCKED — hero subline.
   subline:
@@ -42,8 +43,7 @@ export const profile = {
 // Hero proof strip — short, verifiable facts. The case-study count is added
 // automatically in Hero.jsx from the published projects.
 export const highlights = [
-  { value: '1st Prize', label: 'COMSATS Career Expo 2025' },
-  { value: 'Fellow', label: 'DevWeekend 2026' },
+  { value: '1st Prize', label: 'COMSATS Career Expo 2025', accent: true }, // shown in gold
 ]
 
 // Skills — only tech evidenced in a case study or the experience entry (noted
@@ -94,10 +94,16 @@ export const fieldNote = {
 }
 // `description` is one paragraph; `highlights` ([{ label, text }]) splits a
 // role into separately labelled parts. Either or both can be used.
+// `logo` (in public/logos/) is the timeline badge; `icon` (code | teach | health)
+// is the fallback when there is no logo. `project` is the
+// slug of a case study built in that role, linked from the card.
 export const experience = [
   {
     role: 'Full Stack AI Engineering Fellow',
     org: 'DevWeekend',
+    logo: '/logos/devweekends.webp',
+    icon: 'code',
+    project: 'karigar',
     period: 'Jun 2026 – Sep 2026',
     meta: 'Remote',
     highlights: [
@@ -124,6 +130,8 @@ export const experience = [
   {
     role: 'Coding Instructor',
     org: 'RISE',
+    logo: '/logos/rise.webp',
+    icon: 'teach',
     period: 'Jul 2025 – Present',
     meta: 'Remote',
     description:
@@ -133,6 +141,8 @@ export const experience = [
   {
     role: 'Health Data Science Content Instructor',
     org: 'mahv.io',
+    logo: '/logos/mahv.webp',
+    icon: 'health',
     period: 'Jan 2026 – Apr 2026',
     meta: 'Contract · Remote',
     description:
@@ -142,6 +152,9 @@ export const experience = [
   {
     role: 'Software Engineering Fellow',
     org: 'Headstarter AI',
+    logo: '/logos/headstarter.webp',
+    icon: 'code',
+    project: 'scriptorium',
     period: 'Jul 2024 – Sep 2024',
     meta: 'Remote',
     description:

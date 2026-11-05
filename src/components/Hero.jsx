@@ -34,14 +34,14 @@ export default function Hero() {
         <img
           src={portrait}
           alt=""
-          className="h-14 w-14 shrink-0 rounded-full border border-line object-cover object-top lg:hidden"
+          className="h-14 w-14 shrink-0 rounded-full object-cover object-top ring-2 ring-gold/60 ring-offset-2 ring-offset-cream lg:hidden"
         />
         <div className="font-mono text-[12.5px] font-semibold uppercase tracking-[0.06em] text-forest">
           {profile.role}
         </div>
       </div>
 
-      <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[1fr_260px]">
+      <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[1fr_250px]">
         <div className="max-w-read">
           {profile.openToRoles && (
             <div
@@ -57,7 +57,7 @@ export default function Hero() {
           )}
 
           <h1
-            className="animate-hero mb-6 text-balance font-serif text-[40px] font-normal leading-[1.08] tracking-[-0.01em] text-ink sm:text-[50px] md:text-[56px]"
+            className="animate-hero mb-6 text-balance font-display font-semibold tracking-[-0.03em] text-[36px] leading-[1.08] text-ink sm:text-[44px] md:text-[50px]"
             style={{ animationDelay: '90ms' }}
           >
             {profile.headline}
@@ -92,7 +92,8 @@ export default function Hero() {
 
           {/* Proof strip — the quickest facts a recruiter scans for. */}
           <dl
-            className="animate-hero mt-10 grid grid-cols-3 gap-4 border-t border-line pt-6 sm:max-w-[560px]"
+            // flex (not a fixed 3-col grid) so it reads well with any number of facts
+            className="animate-hero mt-10 flex flex-wrap gap-x-14 gap-y-5 border-t border-line pt-6 sm:max-w-[560px]"
             style={{ animationDelay: '360ms' }}
           >
             {proof.map((p) => (
@@ -101,20 +102,37 @@ export default function Hero() {
                 <dt className="mt-2 font-mono text-[10.5px] uppercase leading-snug tracking-[0.05em] text-faint">
                   {p.label}
                 </dt>
-                <dd className="font-serif text-[26px] leading-none text-ink sm:text-[30px]">{p.value}</dd>
+                <dd className={`font-display font-semibold tracking-[-0.03em] text-[24px] leading-none sm:text-[28px] ${p.accent ? 'text-gold' : 'text-ink'}`}>{p.value}</dd>
               </div>
             ))}
           </dl>
         </div>
 
-        {/* Portrait — desktop only, with an offset frame in the accent colour. */}
-        <div className="animate-hero relative hidden lg:mt-12 lg:block" style={{ animationDelay: '200ms' }}>
-          <div className="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl border border-forest-muted" aria-hidden="true" />
-          <img
-            src={portrait}
-            alt={`Portrait of ${profile.name}`}
-            className="relative aspect-[4/5] w-full rounded-2xl object-cover object-[50%_20%]"
-          />
+        {/* Portrait — desktop only. Arch-shaped photo in a white mat with a soft
+            green shadow, a gold arch outline offset behind it, and a location tag. */}
+        <div className="animate-hero relative hidden justify-self-end lg:mt-10 lg:block" style={{ animationDelay: '200ms' }}>
+          <div className="relative w-[220px]">
+            {/* soft green halo */}
+            <div className="absolute -left-8 -top-6 h-32 w-32 rounded-full bg-forest-tag" aria-hidden="true" />
+            {/* gold arch outline, offset */}
+            <div className="absolute inset-0 translate-x-3.5 translate-y-3.5 rounded-b-[26px] rounded-t-full border-[1.5px] border-gold/70" aria-hidden="true" />
+            {/* photo in a white mat */}
+            <div className="relative rounded-b-[26px] rounded-t-full bg-card p-[7px] shadow-[0_24px_48px_-20px_rgba(51,87,74,0.55)] ring-1 ring-line">
+              <img
+                src={portrait}
+                alt={`Portrait of ${profile.name}`}
+                className="aspect-[4/5] w-full rounded-b-[20px] rounded-t-full object-cover object-[50%_18%]"
+              />
+            </div>
+            {/* location tag overlapping the bottom-left corner */}
+            <div className="absolute -bottom-4 -left-6 flex items-center gap-2 rounded-full border border-line bg-card px-3 py-1.5 text-[12px] font-medium text-muted shadow-[0_8px_20px_-10px_rgba(28,38,34,0.35)]">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="text-forest" aria-hidden="true">
+                <path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z" />
+                <circle cx="12" cy="10" r="2.3" />
+              </svg>
+              {profile.location}
+            </div>
+          </div>
         </div>
       </div>
     </section>

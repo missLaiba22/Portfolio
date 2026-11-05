@@ -13,7 +13,7 @@ export default function PhoneStrip({ phones }) {
           return (
             <div
               key={p.src}
-              className={`shrink-0 rounded-[20px] bg-ink p-[3px] shadow-[0_14px_30px_-12px_rgba(36,33,29,0.45)] transition-transform duration-500 ease-out ${
+              className={`shrink-0 rounded-[20px] bg-ink p-[3px] shadow-[0_14px_30px_-12px_rgba(28,38,34,0.45)] transition-transform duration-500 ease-out ${
                 isMiddle
                   ? 'z-10 w-[104px] group-hover:-translate-y-1.5'
                   : 'mt-6 w-[92px] opacity-95 group-hover:-translate-y-1'

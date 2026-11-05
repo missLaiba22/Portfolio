@@ -44,7 +44,7 @@ function Metrics({ metrics }) {
       {metrics.map((m) => (
         <div key={m.label} className="flex min-w-0 flex-col-reverse justify-end">
           <dt className="mt-1 font-mono text-[10px] uppercase leading-snug tracking-[0.04em] text-faint2">{m.label}</dt>
-          <dd className="font-serif text-[24px] leading-tight text-ink">
+          <dd className="font-display font-semibold tracking-[-0.03em] text-[21px] leading-tight text-ink">
             <CountUp value={m.value} />
           </dd>
         </div>
@@ -101,7 +101,7 @@ export default function ProjectSpotlight({ project }) {
 
   const titleBlock = (
     <>
-      <h3 className="mt-5 font-serif text-[32px] leading-none text-ink sm:text-[36px]">
+      <h3 className="mt-5 font-display font-semibold tracking-[-0.03em] text-[28px] leading-none text-ink sm:text-[32px]">
         {/* Stretched link: the whole card opens the case study */}
         <Link to={`/work/${slug}`} className="text-ink after:absolute after:inset-0 after:content-['']">
           {title}

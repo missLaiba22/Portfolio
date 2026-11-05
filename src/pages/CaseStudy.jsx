@@ -9,7 +9,7 @@ export default function CaseStudy() {
   if (!project || project.status !== 'published') {
     return (
       <div className="py-32 text-center">
-        <h1 className="font-serif text-[40px] text-ink">Case study coming soon</h1>
+        <h1 className="font-display font-semibold tracking-[-0.03em] text-[34px] text-ink">Case study coming soon</h1>
         <p className="mx-auto mt-3 max-w-md text-muted">
           This case study is still being written.
         </p>

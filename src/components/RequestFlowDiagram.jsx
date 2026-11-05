@@ -3,14 +3,14 @@
 // Palette matches the site tokens; SVG is described for screen readers.
 
 const C = {
-  ink: '#24211d',
-  muted: '#57503f',
-  faint2: '#a89f8c',
+  ink: '#1c2622',
+  muted: '#4b5a53',
+  faint2: '#8a9a92',
   forest: '#33574a',
   forestMuted: '#93a99b',
-  line: '#e3dbc9',
-  card: '#fffcf7',
-  band: '#efe6d4',
+  line: '#dce6df',
+  card: '#ffffff',
+  band: '#e5efe8',
 }
 
 // Column x-centres and row y-centres.
@@ -35,7 +35,7 @@ function Node({ cx, cy, title, sub, emphasis }) {
         x={cx}
         y={sub ? cy - 3 : cy + 4}
         textAnchor="middle"
-        fontFamily="Inter, sans-serif"
+        fontFamily="'Plus Jakarta Sans', sans-serif"
         fontSize="13"
         fontWeight="600"
         fill={C.ink}
@@ -47,7 +47,7 @@ function Node({ cx, cy, title, sub, emphasis }) {
           x={cx}
           y={cy + 14}
           textAnchor="middle"
-          fontFamily="'IBM Plex Mono', monospace"
+          fontFamily="'JetBrains Mono', monospace"
           fontSize="10"
           fill={C.faint2}
         >
@@ -114,7 +114,7 @@ export default function RequestFlowDiagram() {
             x={h.x}
             y="18"
             textAnchor="middle"
-            fontFamily="'IBM Plex Mono', monospace"
+            fontFamily="'JetBrains Mono', monospace"
             fontSize="10.5"
             letterSpacing="1"
             fill={C.forest}

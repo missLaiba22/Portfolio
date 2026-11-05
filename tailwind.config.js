@@ -3,29 +3,33 @@ export default {
   content: ['./index.html', './src/**/*.{js,jsx}'],
   theme: {
     extend: {
-      // Palette lifted directly from the original portfolio so the
-      // design language is preserved exactly (nothing redesigned).
+      // Green + white palette with one warm accent (gold). Neutrals carry a
+      // faint green tint so they sit with the forest accent instead of the
+      // old cream/beige. (`cream` keeps its name so existing classes still work.)
       colors: {
-        cream: '#faf6ef', // page background
-        card: '#fffcf7', // raised surfaces / project cards
-        band: '#efe6d4', // the tinted "Question" band on case studies
-        chip: '#f1ece0', // skill chips
-        ink: '#24211d', // primary text
-        muted: '#57503f', // secondary text
-        muted2: '#4a4438', // long-form body text
-        faint: '#857c6a', // tertiary text
-        faint2: '#a89f8c', // captions / kickers
+        cream: '#f6f9f7', // page background — white with a faint green tint
+        card: '#ffffff', // raised surfaces / project cards
+        band: '#e5efe8', // the tinted "Question" band on case studies
+        chip: '#edf3ef', // skill chips
+        ink: '#1c2622', // primary text
+        muted: '#4b5a53', // secondary text
+        muted2: '#3e4b45', // long-form body text
+        faint: '#6c7b74', // tertiary text
+        faint2: '#8a9a92', // captions / kickers
         forest: '#33574a', // accent (links, labels)
         'forest-dark': '#223d33', // link hover
         'forest-muted': '#93a99b', // lesson label
         'forest-tag': '#e6ede7', // FEATURED tag background
-        line: '#e3dbc9', // hairline borders
+        line: '#dce6df', // hairline borders
         sel: '#d9e6df', // text selection
+        gold: '#b98b3e', // third colour: small warm highlights (section numbers, award, photo arc)
+        'gold-soft': '#f4ead6', // gold tint for badges
       },
       fontFamily: {
-        serif: ['"Instrument Serif"', 'Georgia', 'serif'],
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
+        // One clean sans family for headings and body; mono for labels.
+        display: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
       maxWidth: {
         page: '1120px',

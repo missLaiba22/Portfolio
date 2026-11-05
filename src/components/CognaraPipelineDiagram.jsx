@@ -1,18 +1,18 @@
 // Cognara architecture — a two-node LangGraph research pipeline.
 // Interfaces (Streamlit UI / CLI) → Topic → Research → Writer → Sourced brief.
-// Palette matches the site: green = graph node, cream = data, chip = interface.
+// Palette matches the site: green = graph node, white = data, chip = interface.
 
 const C = {
-  ink: '#24211d',
-  muted: '#57503f',
-  faint2: '#a89f8c',
+  ink: '#1c2622',
+  muted: '#4b5a53',
+  faint2: '#8a9a92',
   forest: '#33574a',
   forestMuted: '#93a99b',
   forestTag: '#e6ede7',
-  line: '#e3dbc9',
-  card: '#fffcf7',
-  chip: '#f1ece0',
-  arrow: '#a89f8c',
+  line: '#dce6df',
+  card: '#ffffff',
+  chip: '#edf3ef',
+  arrow: '#8a9a92',
 }
 
 const ROLE = {
@@ -26,11 +26,11 @@ function Node({ cx, cy, w, h, title, sub, role }) {
   return (
     <g>
       <rect x={cx - w / 2} y={cy - h / 2} width={w} height={h} rx="10" fill={s.fill} stroke={s.stroke} />
-      <text x={cx} y={sub ? cy - 4 : cy + 4} textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="13" fontWeight="600" fill={s.title}>
+      <text x={cx} y={sub ? cy - 4 : cy + 4} textAnchor="middle" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="13" fontWeight="600" fill={s.title}>
         {title}
       </text>
       {sub && (
-        <text x={cx} y={cy + 13} textAnchor="middle" fontFamily="'IBM Plex Mono', monospace" fontSize="10.5" fill={s.sub}>
+        <text x={cx} y={cy + 13} textAnchor="middle" fontFamily="'JetBrains Mono', monospace" fontSize="10.5" fill={s.sub}>
           {sub}
         </text>
       )}
@@ -44,7 +44,7 @@ function Legend({ items, y }) {
       {items.map((it, i) => (
         <g key={it.label} transform={`translate(${it.x} ${y})`}>
           <rect width="15" height="15" rx="4" fill={it.fill} stroke={it.stroke} />
-          <text x="22" y="12" fontFamily="Inter, sans-serif" fontSize="12.5" fill={C.muted}>
+          <text x="22" y="12" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="12.5" fill={C.muted}>
             {it.label}
           </text>
         </g>
@@ -79,7 +79,7 @@ export default function CognaraPipelineDiagram() {
 
         {/* dashed LangGraph container */}
         <rect x="112" y="246" width="316" height="200" rx="14" fill="none" stroke={C.forestMuted} strokeDasharray="5 5" />
-        <text x="126" y="270" fontFamily="Inter, sans-serif" fontSize="12.5" fill={C.muted}>
+        <text x="126" y="270" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="12.5" fill={C.muted}>
           2-node LangGraph
         </text>
 

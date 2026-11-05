@@ -3,15 +3,15 @@
 // Textbook chunk + Question → one shared Embedder → Pinecone → Top-3 → Gemini → Answer.
 
 const C = {
-  ink: '#24211d',
-  muted: '#57503f',
-  faint2: '#a89f8c',
+  ink: '#1c2622',
+  muted: '#4b5a53',
+  faint2: '#8a9a92',
   forest: '#33574a',
   forestMuted: '#93a99b',
   forestTag: '#e6ede7',
-  line: '#e3dbc9',
-  card: '#fffcf7',
-  arrow: '#a89f8c',
+  line: '#dce6df',
+  card: '#ffffff',
+  arrow: '#8a9a92',
 }
 
 const ROLE = {
@@ -33,11 +33,11 @@ function Node({ cx, cy, w, h, title, sub, role, emphasis }) {
         stroke={emphasis ? C.forest : s.stroke}
         strokeWidth={emphasis ? 2 : 1}
       />
-      <text x={cx} y={sub ? cy - 4 : cy + 4} textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="13" fontWeight="600" fill={s.title}>
+      <text x={cx} y={sub ? cy - 4 : cy + 4} textAnchor="middle" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="13" fontWeight="600" fill={s.title}>
         {title}
       </text>
       {sub && (
-        <text x={cx} y={cy + 13} textAnchor="middle" fontFamily="'IBM Plex Mono', monospace" fontSize="10.5" fill={s.sub}>
+        <text x={cx} y={cy + 13} textAnchor="middle" fontFamily="'JetBrains Mono', monospace" fontSize="10.5" fill={s.sub}>
           {sub}
         </text>
       )}
@@ -85,11 +85,11 @@ export default function HistoryQuestRagDiagram() {
         {/* legend */}
         <g transform="translate(250 388)">
           <rect width="15" height="15" rx="4" fill={C.forestTag} stroke={C.forestMuted} />
-          <text x="22" y="12" fontFamily="Inter, sans-serif" fontSize="12.5" fill={C.muted}>model step</text>
+          <text x="22" y="12" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="12.5" fill={C.muted}>model step</text>
         </g>
         <g transform="translate(410 388)">
           <rect width="15" height="15" rx="4" fill={C.card} stroke={C.line} />
-          <text x="22" y="12" fontFamily="Inter, sans-serif" fontSize="12.5" fill={C.muted}>data in / out</text>
+          <text x="22" y="12" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="12.5" fill={C.muted}>data in / out</text>
         </g>
       </svg>
     </div>

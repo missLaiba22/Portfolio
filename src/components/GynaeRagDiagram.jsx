@@ -1,19 +1,19 @@
 // GynaeGenius architecture — a two-pipeline RAG system.
 // Ingestion (offline): WHO docs → chunk + embed (Cohere) → Astra DB.
 // Query (per question): Question → retrieve from Astra DB → grounded answer (Cohere) → chat.
-// Palette: green = model step, cream = data in/out.
+// Palette: green = model step, white = data in/out.
 
 const C = {
-  ink: '#24211d',
-  muted: '#57503f',
-  faint: '#857c6a',
-  faint2: '#a89f8c',
+  ink: '#1c2622',
+  muted: '#4b5a53',
+  faint: '#6c7b74',
+  faint2: '#8a9a92',
   forest: '#33574a',
   forestMuted: '#93a99b',
   forestTag: '#e6ede7',
-  line: '#e3dbc9',
-  card: '#fffcf7',
-  arrow: '#a89f8c',
+  line: '#dce6df',
+  card: '#ffffff',
+  arrow: '#8a9a92',
 }
 
 const ROLE = {
@@ -26,11 +26,11 @@ function Node({ cx, cy, w, h, title, sub, role }) {
   return (
     <g>
       <rect x={cx - w / 2} y={cy - h / 2} width={w} height={h} rx="10" fill={s.fill} stroke={s.stroke} />
-      <text x={cx} y={sub ? cy - 4 : cy + 4} textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="12.5" fontWeight="600" fill={s.title}>
+      <text x={cx} y={sub ? cy - 4 : cy + 4} textAnchor="middle" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="12.5" fontWeight="600" fill={s.title}>
         {title}
       </text>
       {sub && (
-        <text x={cx} y={cy + 13} textAnchor="middle" fontFamily="'IBM Plex Mono', monospace" fontSize="10" fill={s.sub}>
+        <text x={cx} y={cy + 13} textAnchor="middle" fontFamily="'JetBrains Mono', monospace" fontSize="10" fill={s.sub}>
           {sub}
         </text>
       )}
@@ -67,10 +67,10 @@ export default function GynaeRagDiagram() {
         </defs>
 
         {/* pipeline labels */}
-        <text x="16" y="24" fontFamily="'IBM Plex Mono', monospace" fontSize="12" fill={C.faint}>
+        <text x="16" y="24" fontFamily="'JetBrains Mono', monospace" fontSize="12" fill={C.faint}>
           Ingestion pipeline (offline setup)
         </text>
-        <text x="16" y="188" fontFamily="'IBM Plex Mono', monospace" fontSize="12" fill={C.faint}>
+        <text x="16" y="188" fontFamily="'JetBrains Mono', monospace" fontSize="12" fill={C.faint}>
           Query pipeline (per user question)
         </text>
 
@@ -93,11 +93,11 @@ export default function GynaeRagDiagram() {
         {/* legend */}
         <g transform="translate(16 322)">
           <rect width="15" height="15" rx="4" fill={C.forestTag} stroke={C.forestMuted} />
-          <text x="22" y="12" fontFamily="Inter, sans-serif" fontSize="12.5" fill={C.muted}>model step</text>
+          <text x="22" y="12" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="12.5" fill={C.muted}>model step</text>
         </g>
         <g transform="translate(170 322)">
           <rect width="15" height="15" rx="4" fill={C.card} stroke={C.line} />
-          <text x="22" y="12" fontFamily="Inter, sans-serif" fontSize="12.5" fill={C.muted}>data in / out</text>
+          <text x="22" y="12" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="12.5" fill={C.muted}>data in / out</text>
         </g>
       </svg>
     </div>

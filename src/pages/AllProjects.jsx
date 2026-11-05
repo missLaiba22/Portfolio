@@ -86,7 +86,7 @@ export default function AllProjects() {
           {publishedProjects.length} projects
         </div>
         <h1
-          className="animate-hero font-serif text-[38px] font-normal leading-[1.08] tracking-[-0.01em] text-ink sm:text-[46px]"
+          className="animate-hero font-display font-semibold tracking-[-0.03em] text-[34px] leading-[1.08] text-ink sm:text-[42px]"
           style={{ animationDelay: '80ms' }}
         >
           All projects

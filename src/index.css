@@ -46,7 +46,7 @@
   width: 100vw;
   transform: translateX(-50%);
   z-index: -1;
-  background: #f3ecdf; /* between cream and band */
+  background: #ecf3ee; /* soft sage, between page and band */
   border-top: 1px solid theme('colors.line');
   border-bottom: 1px solid theme('colors.line');
 }

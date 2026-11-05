@@ -2,18 +2,18 @@
 // React SPA → Caddy (HTTPS) → Core API (REST) / Voice Service (WebSocket);
 // services exchange jobs on SQS and events on EventBridge; Postgres + pgvector
 // (Neon) and MongoDB (Atlas); external APIs: GitHub, Voyage AI, Groq, Deepgram.
-// Palette matches KarigarArchitectureDiagram: green = service, cream = client / data / external.
+// Palette matches KarigarArchitectureDiagram: green = service, white = client / data / external.
 
 const C = {
-  ink: '#24211d',
-  muted: '#57503f',
-  faint2: '#a89f8c',
+  ink: '#1c2622',
+  muted: '#4b5a53',
+  faint2: '#8a9a92',
   forest: '#33574a',
   forestMuted: '#93a99b',
   forestTag: '#e6ede7',
-  line: '#e3dbc9',
-  card: '#fffcf7',
-  arrow: '#a89f8c',
+  line: '#dce6df',
+  card: '#ffffff',
+  arrow: '#8a9a92',
 }
 
 const ROLE = {
@@ -21,8 +21,8 @@ const ROLE = {
   io: { fill: C.card, stroke: C.line, title: C.ink, sub: C.faint2 },
 }
 
-const MONO = "'IBM Plex Mono', monospace"
-const SANS = 'Inter, sans-serif'
+const MONO = "'JetBrains Mono', monospace"
+const SANS = "'Plus Jakarta Sans', sans-serif"
 
 function Node({ cx, cy, w, h, title, sub, role }) {
   const s = ROLE[role]

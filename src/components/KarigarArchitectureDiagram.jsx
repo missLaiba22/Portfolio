@@ -1,18 +1,18 @@
 // Karigar system architecture — one FastAPI modular monolith on Render.
 // React client (Vercel) → Router → Schema → Service → Repository → PostgreSQL
 // + pgvector (Neon), with external APIs (Stripe, Google OAuth, Groq, Hugging Face).
-// Palette: green = backend layer, cream = client / data / external.
+// Palette: green = backend layer, white = client / data / external.
 
 const C = {
-  ink: '#24211d',
-  muted: '#57503f',
-  faint2: '#a89f8c',
+  ink: '#1c2622',
+  muted: '#4b5a53',
+  faint2: '#8a9a92',
   forest: '#33574a',
   forestMuted: '#93a99b',
   forestTag: '#e6ede7',
-  line: '#e3dbc9',
-  card: '#fffcf7',
-  arrow: '#a89f8c',
+  line: '#dce6df',
+  card: '#ffffff',
+  arrow: '#8a9a92',
 }
 
 const ROLE = {
@@ -25,11 +25,11 @@ function Node({ cx, cy, w, h, title, sub, role }) {
   return (
     <g>
       <rect x={cx - w / 2} y={cy - h / 2} width={w} height={h} rx="10" fill={s.fill} stroke={s.stroke} />
-      <text x={cx} y={sub ? cy - 4 : cy + 4} textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="13" fontWeight="600" fill={s.title}>
+      <text x={cx} y={sub ? cy - 4 : cy + 4} textAnchor="middle" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="13" fontWeight="600" fill={s.title}>
         {title}
       </text>
       {sub && (
-        <text x={cx} y={cy + 14} textAnchor="middle" fontFamily="'IBM Plex Mono', monospace" fontSize="10.5" fill={s.sub}>
+        <text x={cx} y={cy + 14} textAnchor="middle" fontFamily="'JetBrains Mono', monospace" fontSize="10.5" fill={s.sub}>
           {sub}
         </text>
       )}
@@ -72,14 +72,14 @@ export default function KarigarArchitectureDiagram() {
 
         {/* client → backend */}
         <line x1={300} y1={74} x2={300} y2={109} stroke={C.arrow} strokeWidth="1.5" markerEnd="url(#kg-arrow)" />
-        <text x={310} y={96} fontFamily="'IBM Plex Mono', monospace" fontSize="10.5" fill={C.muted}>HTTPS + JWT</text>
+        <text x={310} y={96} fontFamily="'JetBrains Mono', monospace" fontSize="10.5" fill={C.muted}>HTTPS + JWT</text>
 
         {/* modular monolith container */}
         <rect x={20} y={114} width={560} height={300} rx="14" fill="none" stroke={C.forestMuted} />
-        <text x={300} y={140} textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="13.5" fontWeight="600" fill={C.forest}>
+        <text x={300} y={140} textAnchor="middle" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="13.5" fontWeight="600" fill={C.forest}>
           FastAPI modular monolith · Render
         </text>
-        <text x={300} y={158} textAnchor="middle" fontFamily="'IBM Plex Mono', monospace" fontSize="10.5" fill={C.faint2}>
+        <text x={300} y={158} textAnchor="middle" fontFamily="'JetBrains Mono', monospace" fontSize="10.5" fill={C.faint2}>
           auth · artisans · products · orders · promotions · chatbot
         </text>
 
@@ -108,15 +108,15 @@ export default function KarigarArchitectureDiagram() {
         {/* legend */}
         <g transform="translate(170 534)">
           <rect width="15" height="15" rx="4" fill={C.forestTag} stroke={C.forestMuted} />
-          <text x="22" y="12" fontFamily="Inter, sans-serif" fontSize="12.5" fill={C.muted}>backend layer</text>
+          <text x="22" y="12" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="12.5" fill={C.muted}>backend layer</text>
         </g>
         <g transform="translate(320 534)">
           <rect width="15" height="15" rx="4" fill={C.card} stroke={C.line} />
-          <text x="22" y="12" fontFamily="Inter, sans-serif" fontSize="12.5" fill={C.muted}>client / data / external</text>
+          <text x="22" y="12" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="12.5" fill={C.muted}>client / data / external</text>
         </g>
         <g transform="translate(520 534)">
           <line x1="0" y1="8" x2="22" y2="8" stroke={C.arrow} strokeWidth="1.5" strokeDasharray="5 4" />
-          <text x="30" y="12" fontFamily="Inter, sans-serif" fontSize="12.5" fill={C.muted}>external API call</text>
+          <text x="30" y="12" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="12.5" fill={C.muted}>external API call</text>
         </g>
       </svg>
     </div>
